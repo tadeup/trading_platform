@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 const {User} = require('../models/Users');
 
@@ -15,7 +17,13 @@ router.get('/register', function (req, res) {
 });
 
 router.get('/login', function (req, res) {
-  res.render('login')
+    // equivalent to 'if (!req.user) {'
+    if (!req.isAuthenticated()) {
+        res.render('login');
+    } else {
+        console.log(req.user);
+        return res.redirect('/');
+    }
 });
 
 router.post('/register', function (req, res) {
@@ -53,6 +61,57 @@ router.post('/register', function (req, res) {
 
         res.redirect('/users/login');
     }
+});
+
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+    },
+    function(email, password, done) {
+        User.getUserByEmail(email, function (err, user) {
+            if (err) { return done(err); }
+            if (!user) {
+                return done(null, false, { message: 'Unknown User' });
+            }
+
+            User.comparePassword(password, user.password, function (err, isMatch) {
+                if (err) throw err;
+                if (isMatch) {
+                    return done(null, user);
+                } else {
+                    return done(null, false, { message: 'Invalid password' });
+                }
+            });
+        });
+    }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    User.getUserById(id, function(err, user) {
+        done(err, user);
+    });
+});
+
+router.post('/login',
+    passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: '/users/login',
+        failureFlash: true}),
+    function(req, res) {
+        console.log(req.body);
+        res.redirect('/');
+    });
+
+router.get('/logout', function (req, res) {
+    req.logout();
+
+    req.flash('success_msg', 'You are logged out');
+
+    res.redirect('/users/login');
 });
 
 module.exports = router;

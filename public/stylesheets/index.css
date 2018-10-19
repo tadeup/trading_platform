@@ -1,23 +1,18 @@
 *{
   font-family: Garamond;
-
+  text-align:center;
 }
 
 h1 {
-  text-align: center ;
   padding-top:60px;
-
 }
 p {
-  text-align: center ;
   padding-top:10px;
-  font-weight: bold; 
-
+  font-weight: bold;
 }
 
 .form-group {
   margin-top:20px;
   margin-right: 300px;
   margin-left:300px;
-  text-align:center;
 }

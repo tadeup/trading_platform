@@ -22,7 +22,7 @@ router.get('/login', function (req, res) {
         res.render('login');
     } else {
         console.log(req.user);
-        return res.redirect('/');
+        return res.redirect('/dashboard');
     }
 });
 
@@ -98,7 +98,7 @@ passport.deserializeUser(function(id, done) {
 
 router.post('/login',
     passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/dashboard',
         failureRedirect: '/users/login',
         failureFlash: true}),
     function(req, res) {

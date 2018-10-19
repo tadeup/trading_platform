@@ -12,6 +12,7 @@ var mongo = require('mongodb');
 var createError = require('http-errors');
 var logger = require('morgan');
 
+var {ensureAuthenticated} = require('./middlewares/authenticate');
 var {mongoose} = require('./config/mongoose');
 
 var indexRouter = require('./routes/index');
@@ -60,7 +61,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
-app.use('/dashboard', dashboardRouter);
+app.use('/dashboard', ensureAuthenticated, dashboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

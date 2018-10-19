@@ -31,38 +31,38 @@
                 </a>
             </div>
             <ul class="nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="dashboard.html">
+                <li class="{{#if active.dashboard}}nav-item active{{/if}}">
+                    <a class="nav-link" href="/dashboard/">
                         <i class="nc-icon nc-chart-pie-35"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
-                    <a class="nav-link" href="./user.html">
+                <li class="{{#if active.profile}}nav-item active{{/if}}">
+                    <a class="nav-link" href="/dashboard/profile">
                         <i class="nc-icon nc-circle-09"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
-                <li>
-                    <a class="nav-link" href="./table.html">
+                <li class="{{#if active.buy}}nav-item active{{/if}}">
+                    <a class="nav-link" href="/dashboard/buy">
                         <i class="nc-icon nc-notes"></i>
                         <p>Buy</p>
                     </a>
                 </li>
-                <li>
-                    <a class="nav-link" href="./typography.html">
+                <li class="{{#if active.sell}}nav-item active{{/if}}">
+                    <a class="nav-link" href="/dashboard/sell">
                         <i class="nc-icon nc-paper-2"></i>
                         <p>Sell</p>
                     </a>
                 </li>
-                <li>
-                    <a class="nav-link" href="./icons.html">
+                <li class="{{#if active.info}}nav-item active{{/if}}">
+                    <a class="nav-link" href="/dashboard/info">
                         <i class="nc-icon nc-atom"></i>
                         <p>Info</p>
                     </a>
                 </li>
                 <li class="nav-item active active-pro">
-                    <a class="nav-link active" href="upgrade.html">
+                    <a class="nav-link active" href="#">
                         <i class="nc-icon nc-alien-33"></i>
                         <p>Some Menu</p>
                     </a>

@@ -1,6 +1,24 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
+const AssetsOwnedSchema = mongoose.Schema({
+    stock_a:{
+        type: Number,
+        min: 0,
+        default: 0
+    },
+    stock_b: {
+        type: Number,
+        min: 0,
+        default: 0
+    },
+    stock_c: {
+        type: Number,
+        min: 0,
+        default: 0
+    }
+});
+
 const UserSchema = mongoose.Schema({
     username: {
         type: String,
@@ -13,6 +31,15 @@ const UserSchema = mongoose.Schema({
     },
     name: {
         type: String
+    },
+    money: {
+        type: Number,
+        min: 0,
+        default: 1000
+    },
+    assetsOwned: {
+        type: AssetsOwnedSchema,
+        default: AssetsOwnedSchema
     }
 });
 

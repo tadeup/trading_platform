@@ -2,17 +2,17 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
 const AssetsOwnedSchema = mongoose.Schema({
-    stock_a:{
+    stockA:{
         type: Number,
         min: 0,
         default: 0
     },
-    stock_b: {
+    stockB: {
         type: Number,
         min: 0,
         default: 0
     },
-    stock_c: {
+    stockC: {
         type: Number,
         min: 0,
         default: 0

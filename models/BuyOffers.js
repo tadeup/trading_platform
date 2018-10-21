@@ -2,15 +2,19 @@ var mongoose = require('mongoose');
 
 const OfferSchema = mongoose.Schema({
     ownerId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
     asset: {
         type: String
     },
     price: {
-        type: String
+        type: Number
     },
     quantity: {
-        type: String
+        type: Number
+    },
+    dateCreated: {
+        type: Date
     }
 });

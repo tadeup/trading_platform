@@ -1,16 +1,16 @@
 var mongoose = require('mongoose');
 
 const OfferSchema = mongoose.Schema({
-    username: {
+    ownerId: {
         type: String,
     },
-    password: {
+    asset: {
         type: String
     },
-    email: {
+    price: {
         type: String
     },
-    name: {
+    quantity: {
         type: String
     }
 });

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-const OfferSchema = mongoose.Schema({
+const BuyOfferSchema = mongoose.Schema({
     ownerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -18,3 +18,7 @@ const OfferSchema = mongoose.Schema({
         type: Date
     }
 });
+
+var BuyOffer = mongoose.model('BuyOffer', BuyOfferSchema);
+
+module.exports = {BuyOffer};

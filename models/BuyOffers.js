@@ -8,10 +8,10 @@ const BuyOfferSchema = mongoose.Schema({
     asset: {
         type: String
     },
-    price: {
+    buyPrice: {
         type: Number
     },
-    quantity: {
+    buyQuantity: {
         type: Number
     },
     dateCreated: {

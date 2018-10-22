@@ -8,10 +8,10 @@ const SellOfferSchema = mongoose.Schema({
     asset: {
         type: String
     },
-    price: {
+    sellPrice: {
         type: Number
     },
-    quantity: {
+    sellQuantity: {
         type: Number
     },
     dateCreated: {

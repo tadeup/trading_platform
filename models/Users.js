@@ -5,17 +5,17 @@ const AssetsOwnedSchema = mongoose.Schema({
     stockA:{
         type: Number,
         min: 0,
-        default: 0
+        default: 100
     },
     stockB: {
         type: Number,
         min: 0,
-        default: 0
+        default: 100
     },
     stockC: {
         type: Number,
         min: 0,
-        default: 0
+        default: 100
     }
 });
 

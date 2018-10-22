@@ -4,8 +4,8 @@
             <div class="col-md-8">
                 <div class="card strpied-tabled-with-hover">
                     <div class="card-header ">
-                        <h4 class="card-title">Sell Offers</h4>
-                        <p class="card-category">Current sell offers for the selected asset</p>
+                        <h4 class="card-title">Buy Offers</h4>
+                        <p class="card-category">Current buy offers for the selected asset</p>
                     </div>
                     <div class="card-body table-full-width table-responsive">
                         <table class="table table-hover table-striped">
@@ -76,11 +76,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="buyQuantity">Quantity</label>
-                                    <input type="number" class="form-control" id="buyQuantity" placeholder=0 name="buyQuantity">
+                                    <input type="number" class="form-control" min="0" id="buyQuantity" placeholder="0" name="buyQuantity">
                                 </div>
                                 <div class="form-group">
                                     <label for="buyPrice">Price</label>
-                                    <input type="number" class="form-control" id="buyPrice" placeholder=0 name="buyPrice">
+                                    <input type="number" class="form-control" min="0" id="buyPrice" placeholder="0" name="buyPrice">
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-outline-dark">Buy</button>

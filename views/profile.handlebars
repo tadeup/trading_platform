@@ -1,80 +1,67 @@
 
-<head>
-	<title>Line Chart</title>
-	<script src="../../dist/Chart.bundle.js"></script>
-	<script src="../utils.js"></script>
-	<style>
-	canvas{
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		-ms-user-select: none;
-	}
-	</style>
-</head>
-
-<body>
-	<div style="width:90%;">
-		<canvas id="canvas"></canvas>
-	</div>
-	<script>
-        var speedCanvas = document.getElementById("speedChart");
-
-Chart.defaults.global.defaultFontFamily = "Lato";
-Chart.defaults.global.defaultFontSize = 18;
-
-var dataFirst = {
-    label: "Car A - Speed (mph)",
-    data: [0, 59, 75, 20, 20, 55, 40],
-    lineTension: 0.3,
-    fill: false,
-    borderColor: 'red',
-    backgroundColor: 'transparent',
-    pointBorderColor: 'red',
-    pointBackgroundColor: 'lightgreen',
-    pointRadius: 5,
-    pointHoverRadius: 15,
-    pointHitRadius: 30,
-    pointBorderWidth: 2,
-    pointStyle: 'rect'
-  };
-
-var dataSecond = {
-    label: "Car B - Speed (mph)",
-    data: [20, 15, 60, 60, 65, 30, 70],
-    lineTension: 0.3,
-    fill: false,
-    borderColor: 'purple',
-    backgroundColor: 'transparent',
-    pointBorderColor: 'purple',
-    pointBackgroundColor: 'lightgreen',
-    pointRadius: 5,
-    pointHoverRadius: 15,
-    pointHitRadius: 30,
-    pointBorderWidth: 2
-  };
-
-var speedData = {
-  labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],
-  datasets: [dataFirst, dataSecond]
-};
-
-var chartOptions = {
-  legend: {
-    display: true,
-    position: 'top',
-    labels: {
-      boxWidth: 80,
-      fontColor: 'black'
-    }
-  }
-};
-
-var lineChart = new Chart(speedCanvas, {
-  type: 'line',
-  data: speedData,
-  options: chartOptions
-});
-
-    </script>
-	
-</body>
+ <tbody>
+ <div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Information</h4>
+                        <p class="card-category"> Your User Information </p>
+                    </div>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table ">
+                            <thead>
+                            <th>Label</th>
+                            <th>Your Information</th>
+                            
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>Lucas</td>
+                            </tr>
+                            <tr>
+                                <td>Session</td>
+                                <td>2</td>
+                            </tr>
+                                <td>Class</td>
+                                <td>Finance</td>
+                            <tr>
+                                <td>Teacher</td>
+                                <td>Bernardo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+ 
+ <div class="card strpied-tabled" "col-md-6">
+                    <div class="card-header ">
+                        <h4 class="card-title">Current Position</h4>
+                        <p class="card-category">Ranking of the students</p>
+                    </div>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table">
+                            <thead>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Profit</th>
+                            <th>Number of trades</th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Joao</td>
+                                <td>$3,998</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jack</td>
+                                <td>$3,789</td>
+                                <td>20</td>
+                            </tr>
+</div>
+</tbody>

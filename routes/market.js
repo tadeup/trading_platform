@@ -75,26 +75,43 @@ router.post('/sell', function(req, res, next) {
             var newSellOffer = new SellOffer({
                 asset, sellQuantity, sellPrice, 'dateCreated':new Date().getTime()
             });
-            
-            BuyOffer.find({buyPrice: {$lte: sellPrice}}, function (err, docs) {
+
+            // while (newSellOffer.sellQuantity > 0) {
+            //
+            // }
+            BuyOffer
+                .find({buyPrice: {$lte: sellPrice}})
+                .sort({buyPrice:'ascending'})
+                .exec(function (err, docs) {
                 if (err) {
                     req.flash('error_msg', err);
                     return res.redirect('back');
                 }
 
                 if (docs){
-                    // CONTINUE FROM HERE
+                    var j = 0;
+                    while (newSellOffer.sellQuantity > 0 && j < docs.length) {
+                        if (newSellOffer.sellQuantity > docs[j].buyQuantity){
+                            newSellOffer.sellQuantity -= docs[j].buyQuantity;
+                            BuyOffer.findByIdAndUpdate(docs[j]._id, {buyQuantity: 0}).exec();
+                            j++;
+                        } else {
+                            var newBuyQuant = docs[j].buyQuantity - newSellOffer.sellQuantity;
+                            BuyOffer.findByIdAndUpdate(docs[j]._id, {buyQuantity: newBuyQuant}).exec();
+                            newSellOffer.sellQuantity = 0;
+                        }
+                    }
                 }
-            });
-            
-            newSellOffer.save(newSellOffer, function (err, sellOffer) {
-                if(err) console.log(err);
-                console.log(sellOffer);
-            });
 
-            req.flash('success_msg', 'Sell offer created');
+                newSellOffer.save(newSellOffer, function (err, sellOffer) {
+                    if(err) console.log(err);
+                    console.log(sellOffer);
+                });
 
-            res.redirect('back');
+                req.flash('success_msg', 'Sell offer created');
+                res.redirect('back');
+
+            });
 
         }).catch((e) => {
             res.status(400).send();

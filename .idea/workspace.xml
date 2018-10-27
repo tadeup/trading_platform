@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2adeb858-2870-46e3-a5f2-e24e5ba2cf75" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/views/market.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/market.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/market.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/sell.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/sell.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/buy.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/deprecated/buy.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/layout-dashboard.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout-dashboard.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sell.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/deprecated/sell.handlebars" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,27 +22,28 @@
     <session id="337585837">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.34" value="2" />
           <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.39" value="2" />
+          <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.41" value="2" />
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="11" />
           <entry key="gitignore" value="2" />
-          <entry key="handlebars" value="23" />
+          <entry key="handlebars" value="26" />
           <entry key="hbs" value="13" />
           <entry key="html" value="7" />
-          <entry key="js" value="43" />
+          <entry key="js" value="45" />
           <entry key="json" value="8" />
         </counts>
       </usages-collector>
@@ -47,9 +51,9 @@
         <counts>
           <entry key="CSS" value="11" />
           <entry key="HTML" value="7" />
-          <entry key="Handlebars/Mustache" value="36" />
+          <entry key="Handlebars/Mustache" value="39" />
           <entry key="JSON" value="8" />
-          <entry key="JavaScript" value="43" />
+          <entry key="JavaScript" value="45" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -57,18 +61,18 @@
         <counts>
           <entry key="css" value="7" />
           <entry key="gitignore" value="88" />
-          <entry key="handlebars" value="821" />
+          <entry key="handlebars" value="869" />
           <entry key="hbs" value="182" />
           <entry key="html" value="29" />
-          <entry key="js" value="4040" />
+          <entry key="js" value="4058" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="7" />
           <entry key="HTML" value="29" />
-          <entry key="Handlebars/Mustache" value="1003" />
-          <entry key="JavaScript" value="4040" />
+          <entry key="Handlebars/Mustache" value="1051" />
+          <entry key="JavaScript" value="4058" />
           <entry key="PLAIN_TEXT" value="88" />
         </counts>
       </usages-collector>
@@ -79,53 +83,53 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/market.js">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-85">
+              <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/market.handlebars">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="99" column="103" selection-start-line="99" selection-start-column="103" selection-end-line="99" selection-end-column="103" />
+              <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/sell.handlebars">
+        <entry file="file://$PROJECT_DIR$/views/layouts/layout-dashboard.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1445">
-              <caret line="85" column="91" selection-start-line="85" selection-start-column="91" selection-end-line="85" selection-end-column="91" />
+            <state relative-caret-position="233">
+              <caret line="51" column="63" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Users.js">
+        <entry file="file://$PROJECT_DIR$/routes/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state relative-caret-position="136">
+              <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/examples/notifications.html">
+        <entry file="file://$PROJECT_DIR$/views/deprecated/sell.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4284">
-              <caret line="252" column="40" selection-start-line="252" selection-start-column="40" selection-end-line="252" selection-end-column="149" />
+            <state relative-caret-position="187">
+              <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/js/demo.js">
+        <entry file="file://$PROJECT_DIR$/views/deprecated/buy.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8075">
-              <caret line="475" selection-start-line="475" selection-end-line="475" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/buy.handlebars">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="92" column="14" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
+            <state>
+              <caret lean-forward="true" selection-end-line="94" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -144,6 +148,7 @@
       <find>api</find>
       <find>username</find>
       <find>showNoti</find>
+      <find>active</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,17 +172,19 @@
         <option value="$PROJECT_DIR$/views/index.handlebars" />
         <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/routes/middlewares/authenticate.js" />
-        <option value="$PROJECT_DIR$/routes/dashboard.js" />
         <option value="$PROJECT_DIR$/models/Offers.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/models/BuyOffers.js" />
         <option value="$PROJECT_DIR$/models/SellOffers.js" />
         <option value="$PROJECT_DIR$/public/js/notifications.js" />
-        <option value="$PROJECT_DIR$/views/layouts/layout-dashboard.handlebars" />
         <option value="$PROJECT_DIR$/views/buy.handlebars" />
         <option value="$PROJECT_DIR$/models/Users.js" />
         <option value="$PROJECT_DIR$/routes/market.js" />
         <option value="$PROJECT_DIR$/views/sell.handlebars" />
+        <option value="$PROJECT_DIR$/views/layouts/layout-dashboard.handlebars" />
+        <option value="$PROJECT_DIR$/routes/dashboard.js" />
+        <option value="$PROJECT_DIR$/views/deprecated/sell.handlebars" />
+        <option value="$PROJECT_DIR$/views/market.handlebars" />
       </list>
     </option>
   </component>
@@ -219,34 +226,18 @@
             <path>
               <item name="trading02" type="b2602c69:ProjectViewProjectNode" />
               <item name="trading02" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trading02" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trading02" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trading02" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trading02" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trading02" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trading02" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trading02" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trading02" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trading02" type="b2602c69:ProjectViewProjectNode" />
               <item name="trading02" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trading02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trading02" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="deprecated" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trading02" type="b2602c69:ProjectViewProjectNode" />
@@ -272,6 +263,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tadeu\Desktop\FGV\code\trading02\views\deprecated" />
       <recent name="C:\Users\tadeu\Desktop\FGV\code\trading02" />
       <recent name="C:\Users\tadeu\Desktop\FGV\code\trading02\views\layouts" />
     </key>
@@ -309,12 +301,13 @@
       <workItem from="1540303367806" duration="11399000" />
       <workItem from="1540394666431" duration="216000" />
       <workItem from="1540395052671" duration="1322000" />
-      <workItem from="1540485869722" duration="324000" />
+      <workItem from="1540485869722" duration="594000" />
+      <workItem from="1540644147894" duration="3035000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105349000" />
+    <option name="totallyTimeSpent" value="108654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -326,7 +319,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32577905" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32577905" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -422,13 +415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -505,13 +491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="55" column="47" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -523,13 +502,6 @@
     <entry file="file://$PROJECT_DIR$/public/js/light-bootstrap-dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3162" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout-dashboard.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1091">
-          <caret line="154" column="87" selection-start-line="154" selection-start-column="87" selection-end-line="154" selection-end-column="87" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layouts/users.handlebars">
@@ -553,20 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/market.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="99" column="103" selection-start-line="99" selection-start-column="103" selection-end-line="99" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/sell.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="91" selection-start-line="85" selection-start-column="91" selection-end-line="85" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/Users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -576,22 +534,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/examples/notifications.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4284">
+        <state relative-caret-position="391">
           <caret line="252" column="40" selection-start-line="252" selection-start-column="40" selection-end-line="252" selection-end-column="149" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/demo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8075">
+        <state relative-caret-position="391">
           <caret line="475" selection-start-line="475" selection-end-line="475" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/buy.handlebars">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="14" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
+        <state relative-caret-position="935">
+          <caret line="55" column="47" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/deprecated/buy.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" selection-end-line="94" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/deprecated/sell.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout-dashboard.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="51" column="63" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/market.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/market.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
         </state>
       </provider>
     </entry>

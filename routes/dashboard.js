@@ -18,19 +18,11 @@ router.get('/profile', function(req, res, next) {
         }});
 });
 
-router.get('/buy', function(req, res, next) {
-    res.render('buy', {
+router.get('/market', function(req, res, next) {
+    res.render('market', {
         layout: 'layout-dashboard',
         active: {
-            'buy': true
-        }});
-});
-
-router.get('/sell', function(req, res, next) {
-    res.render('sell', {
-        layout: 'layout-dashboard',
-        active: {
-            'sell': true
+            'market': true
         }});
 });
 

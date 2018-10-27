@@ -376,6 +376,8 @@ body>.navbar-collapse .sidebar-wrapper {
     width: 260px;
     z-index: 4;
     padding-bottom: 100px;
+    background-color: white;
+    border-right:1px solid rgba(0, 0, 0, 0.1);
 }
 
 .sidebar .sidebar-background,
@@ -404,7 +406,7 @@ body>.navbar-collapse .logo p {
     float: left;
     font-size: 20px;
     margin: 10px 10px;
-    color: #FFFFFF;
+    color: #888888;
     line-height: 20px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -415,7 +417,7 @@ body>.navbar-collapse .logo .simple-text {
     padding: 5px 0px;
     display: block;
     font-size: 18px;
-    color: #FFFFFF;
+    color: #888888;
     text-align: center;
     font-weight: 400;
     line-height: 30px;
@@ -447,7 +449,7 @@ body>.navbar-collapse .nav {
 
 .sidebar .nav li .nav-link,
 body>.navbar-collapse .nav li .nav-link {
-    color: #FFFFFF;
+    color: #888888;
     margin: 5px 15px;
     opacity: .86;
     border-radius: 4px;
@@ -483,13 +485,13 @@ body>.navbar-collapse .nav li .nav-link i {
 
 .sidebar .nav li:hover .nav-link,
 body>.navbar-collapse .nav li:hover .nav-link {
-    background: rgba(255, 255, 255, 0.13);
+    background: rgba(242, 242, 242);
     opacity: 1;
 }
 
 .sidebar .nav li.active .nav-link,
 body>.navbar-collapse .nav li.active .nav-link {
-    color: #FFFFFF;
+    color: #888888;
     opacity: 1;
     background: rgba(255, 255, 255, 0.23);
 }
@@ -558,7 +560,7 @@ body>.navbar-collapse .logo .simple-text {
     padding: 5px 0px;
     display: block;
     font-size: 18px;
-    color: #FFFFFF;
+    color: #888888;
     text-align: center;
     font-weight: 400;
     line-height: 30px;

@@ -499,7 +499,7 @@ body>.navbar-collapse .nav li.active .nav-link {
 .sidebar .nav li.separator,
 body>.navbar-collapse .nav li.separator {
     margin: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgb(229, 229, 229);
 }
 
 .sidebar .nav li.separator+.nav-item,

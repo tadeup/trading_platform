@@ -43,6 +43,7 @@ router.get('/market/:assetName', function(req, res, next) {
                         layout: 'layout-dashboard',
                         sellOffers,
                         buyOffers,
+                        assetName,
                         active: {
                             'market': true,
                         }};

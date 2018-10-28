@@ -8,3 +8,11 @@ $(function(){
         return false;
     });
 });
+
+// $(".market-form").submit( function(eventObj) {
+//     $('<input />').attr('type', 'hidden')
+//         .attr('name', "something")
+//         .attr('value', "something")
+//         .appendTo(this);
+//     return true;
+// });

@@ -6,11 +6,12 @@ const {BuyOffer} = require('../models/BuyOffers');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('dashboard', {
-        layout: 'layout-dashboard',
-        active: {
-            'dashboard': true
-        }});
+    // res.render('dashboard', {
+    //     layout: 'layout-dashboard',
+    //     active: {
+    //         'dashboard': true
+    //     }});
+    res.redirect('dashboard/profile')
 });
 
 router.get('/profile', function(req, res, next) {

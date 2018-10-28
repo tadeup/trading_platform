@@ -101,17 +101,17 @@ router.post('/sell', function(req, res, next) {
         res.redirect('back');
     } else {
 
-        currentUser = req.user;
+        var currentUser = req.user;
         if (sellQuantity > currentUser.assetsOwned[asset]){
-            req.flash('error_msg', 'You dont have enough assets!');
+            req.flash('error_msg', "You don't have enough assets!");
             return res.redirect('back');
         }
 
         var setObject = {};
         setObject[`assetsOwned.${asset}`] = currentUser.assetsOwned[asset] - sellQuantity;
 
-        User.findByIdAndUpdate(req.user, {$set: setObject}).then((User) => {
-            if(!User){
+        User.findByIdAndUpdate(req.user, {$set: setObject}).then((user) => {
+            if(!user){
                 return res.status(404).send();
             }
 
@@ -130,13 +130,26 @@ router.post('/sell', function(req, res, next) {
 
                 if (docs){
                     var j = 0;
+                    var pxq;
                     while (newSellOffer.sellQuantity > 0 && j < docs.length) {
                         if (newSellOffer.sellQuantity > docs[j].buyQuantity){
+                            pxq = docs[j].buyQuantity * newSellOffer.sellPrice;
+                            let setObject = {};
+                            setObject[`assetsOwned.${asset}`] = docs[j].buyQuantity;
+                            User.findByIdAndUpdate(docs[j].ownerId, {$inc: setObject}).exec();
+                            User.findByIdAndUpdate(docs[j].ownerId, {$inc: {money: -pxq}}).exec();
+                            User.findByIdAndUpdate(currentUser._id, {$inc: {money: pxq}}).exec();
                             newSellOffer.sellQuantity -= docs[j].buyQuantity;
                             BuyOffer.findByIdAndUpdate(docs[j]._id, {buyQuantity: 0}).exec();
                             j++;
                         } else {
                             var newBuyQuant = docs[j].buyQuantity - newSellOffer.sellQuantity;
+                            pxq = newSellOffer.sellQuantity * newSellOffer.sellPrice;
+                            let setObject = {};
+                            setObject[`assetsOwned.${asset}`] = newSellOffer.sellQuantity;
+                            User.findByIdAndUpdate(docs[j].ownerId, {$inc: setObject}).exec();
+                            User.findByIdAndUpdate(docs[j].ownerId, {$inc: {money: pxq}}).exec();
+                            User.findByIdAndUpdate(currentUser._id, {$inc: {money: -pxq}}).exec();
                             BuyOffer.findByIdAndUpdate(docs[j]._id, {buyQuantity: newBuyQuant}).exec();
                             newSellOffer.sellQuantity = 0;
                         }

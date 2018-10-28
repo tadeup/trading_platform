@@ -23,11 +23,7 @@ router.get('/profile', function(req, res, next) {
 });
 
 router.get('/market', function(req, res, next) {
-    res.render('market', {
-        layout: 'layout-dashboard',
-        active: {
-            'market': true
-        }});
+    res.redirect('market/stockA')
 });
 
 router.get('/market/:assetName', function(req, res, next) {

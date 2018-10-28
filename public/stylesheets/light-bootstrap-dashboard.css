@@ -523,7 +523,12 @@ body>.navbar-collapse .nav .active-pro {
 
 .sidebar .nav .active-pro a,
 body>.navbar-collapse .nav .active-pro a {
-    color: #FFFFFF !important;
+    color: #1DC7EA !important;
+}
+
+.sidebar .nav .active a,
+body>.navbar-collapse .nav .active a {
+    background-color: rgba(236, 236, 236, 1) !important;
 }
 
 .sidebar .nav .nav-link,

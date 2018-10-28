@@ -14,6 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/profile', function(req, res, next) {
+    console.log(req.user);
     res.render('profile', {
         layout: 'layout-dashboard',
         active: {

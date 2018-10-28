@@ -24,18 +24,61 @@ router.post('/buy', function(req, res, next) {
         req.flash('error_msg', 'Please provide valid data');
         res.redirect('back');
     } else {
+        var currentUser = req.user;
+        if (buyQuantity * buyPrice > currentUser.money){
+            req.flash('error_msg', "You don't have enough money!");
+            return res.redirect('back');
+        }
+
         var newBuyOffer = new BuyOffer({
-            asset, buyQuantity, buyPrice, 'dateCreated':new Date().getTime()
+            asset, buyQuantity, buyPrice, 'dateCreated':new Date().getTime(), ownerId: currentUser._id
         });
 
-        newBuyOffer.save(newBuyOffer, function (err, buyOffer) {
-            if(err) console.log(err);
-            console.log(buyOffer);
-        });
+        SellOffer
+            .find({sellPrice: {$lte: buyPrice}})
+            .sort({sellPrice:'ascending'})
+            .exec(function (err, docs) {
+                if (err) {
+                    req.flash('error_msg', err);
+                    return res.redirect('back');
+                }
 
-        req.flash('success_msg', 'Buy offer created');
+                if (docs){
+                    var j = 0;
+                    var pxq;
+                    while (newBuyOffer.buyQuantity > 0 && j < docs.length) {
+                        if (newBuyOffer.buyQuantity > docs[j].sellQuantity){
+                            pxq = docs[j].sellQuantity * docs[j].sellPrice;
+                            User.findByIdAndUpdate(docs[j].ownerId, {$inc: {money: pxq}}).exec();
+                            User.findByIdAndUpdate(currentUser._id, {$inc: {money: -pxq}}).exec();
+                            newBuyOffer.buyQuantity -= docs[j].sellQuantity;
+                            SellOffer.findByIdAndUpdate(docs[j]._id, {sellQuantity: 0}).exec();
+                            j++;
+                        } else {
+                            var newSellQuant = docs[j].sellQuantity - newBuyOffer.buyQuantity;
+                            pxq = newSellQuant * docs[j].sellPrice;
+                            User.findByIdAndUpdate(docs[j].ownerId, {$inc: {money: pxq}}).exec();
+                            User.findByIdAndUpdate(currentUser._id, {$inc: {money: -pxq}}).exec();
+                            SellOffer.findByIdAndUpdate(docs[j]._id, {sellQuantity: newSellQuant}).exec();
+                            newBuyOffer.buyQuantity = 0;
+                        }
+                    }
+                }
 
-        res.redirect('back');
+                var setObject = {};
+                var totalBought = buyQuantity - newBuyOffer.buyQuantity;
+                setObject[`assetsOwned.${asset}`] = currentUser.assetsOwned[asset] + totalBought;
+                User.findByIdAndUpdate(req.user, {$set: setObject}).exec();
+
+                newBuyOffer.save(newBuyOffer, function (err, buyOffer) {
+                    if(err) console.log(err);
+                    console.log(buyOffer);
+                });
+
+                req.flash('success_msg', 'Buy offer created');
+                res.redirect('back');
+
+            });
     }
 });
 
@@ -73,12 +116,9 @@ router.post('/sell', function(req, res, next) {
             }
 
             var newSellOffer = new SellOffer({
-                asset, sellQuantity, sellPrice, 'dateCreated':new Date().getTime()
+                asset, sellQuantity, sellPrice, 'dateCreated':new Date().getTime(), ownerId: currentUser._id
             });
 
-            // while (newSellOffer.sellQuantity > 0) {
-            //
-            // }
             BuyOffer
                 .find({buyPrice: {$gte: sellPrice}})
                 .sort({buyPrice:'descending'})

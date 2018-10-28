@@ -21,7 +21,6 @@ router.get('/login', function (req, res) {
     if (!req.isAuthenticated()) {
         res.render('login');
     } else {
-        console.log(req.user);
         return res.redirect('/dashboard');
     }
 });
@@ -102,7 +101,6 @@ router.post('/login',
         failureRedirect: '/users/login',
         failureFlash: true}),
     function(req, res) {
-        console.log(req.body);
         res.redirect('/');
     });
 

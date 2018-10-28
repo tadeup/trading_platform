@@ -14,7 +14,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/profile', function(req, res, next) {
-    console.log(req.user);
     res.render('profile', {
         layout: 'layout-dashboard',
         active: {
@@ -45,7 +44,6 @@ router.get('/market/:assetName', function(req, res, next) {
                             'market': true,
                         }};
                     contextObj.active[`${assetName}`] = true;
-                    console.log(contextObj);
                     res.render('market', contextObj);
                 }
             });

@@ -80,8 +80,8 @@ router.post('/sell', function(req, res, next) {
             //
             // }
             BuyOffer
-                .find({buyPrice: {$lte: sellPrice}})
-                .sort({buyPrice:'ascending'})
+                .find({buyPrice: {$gte: sellPrice}})
+                .sort({buyPrice:'descending'})
                 .exec(function (err, docs) {
                 if (err) {
                     req.flash('error_msg', err);

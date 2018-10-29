@@ -1,23 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
-const AssetsOwnedSchema = mongoose.Schema({
-    stockA:{
-        type: Number,
-        min: 0,
-        default: 100
-    },
-    stockB: {
-        type: Number,
-        min: 0,
-        default: 100
-    },
-    stockC: {
-        type: Number,
-        min: 0,
-        default: 100
-    }
-});
+const constants = require('../config/constants');
 
 const UserSchema = mongoose.Schema({
     username: {
@@ -35,11 +19,24 @@ const UserSchema = mongoose.Schema({
     money: {
         type: Number,
         min: 0,
-        default: 1000
+        default: constants.initialMoney
     },
     assetsOwned: {
-        type: AssetsOwnedSchema,
-        default: AssetsOwnedSchema
+        stockA:{
+            type: Number,
+            min: 0,
+            default: constants.initialStockA
+        },
+        stockB: {
+            type: Number,
+            min: 0,
+            default: constants.initialStockB
+        },
+        stockC: {
+            type: Number,
+            min: 0,
+            default: constants.initialStockC
+        }
     }
 });
 

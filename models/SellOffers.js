@@ -16,6 +16,9 @@ const SellOfferSchema = mongoose.Schema({
     },
     dateCreated: {
         type: Date
+    },
+    dateCompleted: {
+        type: Date
     }
 });
 

@@ -1,8 +1,9 @@
 const constants = {
-    initialMoney: 10000,
-    initialStockA: 100,
-    initialStockB: 100,
-    initialStockC: 100,
+    initialMoney: 0,
+    initialStockA: 0,
+    initialStockB: 0,
+    initialStockC: 0,
+    margin: 100,
 };
 
-module.exports = constants;
+module.exports = {constants};

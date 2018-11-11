@@ -22,6 +22,10 @@ const BuyOfferSchema = mongoose.Schema({
     }
 });
 
+BuyOfferSchema.statics.createBuyOffer = function(callback){
+
+};
+
 var BuyOffer = mongoose.model('BuyOffer', BuyOfferSchema);
 
 module.exports = {BuyOffer};

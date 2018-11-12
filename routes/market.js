@@ -183,7 +183,13 @@ router.delete('/delete/:offerType/:offerId', function (req, res, next) {
                     throw 403;
                 }
             }).then((deletedObj) => {
-                console.log(deletedObj);
+                var setObject = {};
+                console.log(`assetsOwned.${deletedObj.asset}`);
+                setObject[`assetsOwned.${deletedObj.asset}`] = req.user.assetsOwned[deletedObj.asset] + deletedObj.sellQuantity;
+                console.log(setObject);
+
+                return User.findByIdAndUpdate(req.user, {$set: setObject});
+            }).then((ob) => {
                 return res.status(200).send('Successfully deleted');
             }).catch((e) => {
                 return res.status(e).send();

@@ -48,6 +48,7 @@ router.get('/market/:assetName', function(req, res, next) {
                         UserOffersSell,
                         assetName,
                         currentUser: req.user,
+                        positionOnAsset: req.user.assetsOwned[`${assetName}`],
                         active: {
                             'market': true,
                         }};

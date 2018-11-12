@@ -64,7 +64,11 @@
                                         <td>Buy</td>
                                         <td>{{{buyPrice}}}</td>
                                         <td>{{{buyQuantity}}}</td>
-                                        <td><a href="#" style="color:red"><i class="nc-icon nc-simple-remove"></i></a></td>
+                                        <td>
+                                            <a href="#" style="color:red" class="delete-offer buy-offer" data-id="{{{_id}}}">
+                                                <i class="nc-icon nc-simple-remove"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 {{/each}}
                                 {{#each UserOffersSell}}
@@ -72,7 +76,11 @@
                                         <td>Sell</td>
                                         <td>{{{sellPrice}}}</td>
                                         <td>{{{sellQuantity}}}</td>
-                                        <td><a href="#" style="color:red"><i class="nc-icon nc-simple-remove"></i></a></td>
+                                        <td>
+                                            <a href="#" style="color:red" class="delete-offer sell-offer" data-id="{{{_id}}}">
+                                                <i class="nc-icon nc-simple-remove"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 {{/each}}
                                 </tbody>

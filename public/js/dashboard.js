@@ -9,6 +9,29 @@ $(function(){
     });
 });
 
+$(document).ready(function () {
+    $('.delete-offer').on('click', function (e) {
+        var url;
+        const id = $(this).attr('data-id');
+        if ($(this).hasClass('sell-offer')) {
+            url = '/market/delete/sell/' + id;
+        } else if ($(this).hasClass('buy-offer')) {
+            url = '/market/delete/buy/' + id;
+        }
+        console.log(url);
+        $.ajax({
+            type: 'DELETE',
+            url,
+            success: function (response) {
+                location.reload();
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        })
+    });
+});
+
 // $(".market-form").submit( function(eventObj) {
 //     $('<input />').attr('type', 'hidden')
 //         .attr('name', "something")

@@ -171,6 +171,43 @@ router.post('/sell', function(req, res, next) {
     });
 });
 
+router.delete('/delete/:offerType/:offerId', function (req, res, next) {
+    const {offerId, offerType} = req.params;
+
+    if (offerType === 'sell'){
+        SellOffer.findById(offerId)
+            .then((offer) => {
+                if (req.user && `${offer.ownerId}` === `${req.user._id}`) {
+                    return SellOffer.findByIdAndDelete(offerId)
+                } else {
+                    throw 403;
+                }
+            }).then((deletedObj) => {
+                console.log(deletedObj);
+                return res.status(200).send('Successfully deleted');
+            }).catch((e) => {
+                return res.status(e).send();
+        });
+        res.send('sell');
+    } else if (offerType === 'buy'){
+        BuyOffer.findById(offerId)
+            .then((offer) => {
+                if (req.user && `${offer.ownerId}` === `${req.user._id}`) {
+                    return BuyOffer.findByIdAndDelete(offerId)
+                } else {
+                    throw 403;
+                }
+            })
+            .then((deletedObj) => {
+                return res.status(200).send('Successfully deleted');
+            }).catch((e) => {
+                return res.status(e).send();
+        });
+    } else {
+        res.status(404).send()
+    }
+});
+
 router.get('/profile', function(req, res, next) {
 
     //here it is

@@ -1,17 +1,20 @@
 var mongoose = require('mongoose');
+var uniqueValidator = require('mongoose-unique-validator');
 var bcrypt = require('bcryptjs');
 
-const constants = require('../config/constants');
+const {constants} = require('../config/constants');
 
 const UserSchema = mongoose.Schema({
     username: {
         type: String,
+        unique: true
     },
     password: {
         type: String
     },
     email: {
-        type: String
+        type: String,
+        unique: true
     },
     name: {
         type: String
@@ -24,17 +27,17 @@ const UserSchema = mongoose.Schema({
     assetsOwned: {
         stockA:{
             type: Number,
-            min: 0,
+            min: -100,
             default: constants.initialStockA
         },
         stockB: {
             type: Number,
-            min: 0,
+            min: -100,
             default: constants.initialStockB
         },
         stockC: {
             type: Number,
-            min: 0,
+            min: -100,
             default: constants.initialStockC
         }
     }
@@ -64,6 +67,8 @@ UserSchema.statics.comparePassword = function (candidatePassword, hash, callback
         callback(null, isMatch);
     });
 };
+
+UserSchema.plugin(uniqueValidator);
 
 var User = mongoose.model('User', UserSchema);
 

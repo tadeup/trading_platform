@@ -52,13 +52,14 @@ router.post('/register', function (req, res) {
         });
 
         User.createUser(newUser, function (err, user) {
-            if(err) console.log(err);
-            console.log(user);
+            if(err) {
+                req.flash('error_msg', 'User or email not unique');
+                res.redirect('back');
+            } else {
+                req.flash('success_msg', 'You are registered and can now login');
+                res.redirect('/users/login');
+            }
         });
-
-        req.flash('success_msg', 'You are registered and can now login');
-
-        res.redirect('/users/login');
     }
 });
 

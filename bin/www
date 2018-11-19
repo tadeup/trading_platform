@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 
 /**
+ * Environmental variables.
+ */
+
+require('../config/config');
+
+/**
  * Module dependencies.
  */
 

@@ -8,7 +8,7 @@ const {constants} = require('../config/constants');
 
 const helpers = require('../helpers/market');
 
-/* GET home page. */
+/* POST new buy offer */
 router.post('/buy', function(req, res, next) {
     var {body: {
         asset,

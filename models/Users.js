@@ -40,6 +40,10 @@ const UserSchema = mongoose.Schema({
             min: -100,
             default: constants.initialStockC
         }
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
 });
 

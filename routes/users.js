@@ -9,17 +9,17 @@ const {User} = require('../models/Users');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send('USERS PAGE');
 });
 
 router.get('/register', function (req, res) {
-  res.render('register');
+  res.render('users/register');
 });
 
 router.get('/login', function (req, res) {
     // equivalent to 'if (!req.user) {'
     if (!req.isAuthenticated()) {
-        res.render('login');
+        res.render('users/login');
     } else {
         return res.redirect('/dashboard');
     }

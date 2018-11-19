@@ -214,7 +214,7 @@
             }
             o.language = lang;
 
-            // Retrieve view index from any aliases
+            // Retrieve view users from any aliases
             o.startView = this._resolveViewName(o.startView);
             o.minViewMode = this._resolveViewName(o.minViewMode);
             o.maxViewMode = this._resolveViewName(o.maxViewMode);
@@ -671,7 +671,7 @@
 
             var parentsZindex = [0];
             this.element.parents().each(function() {
-                var itemZIndex = $(this).css('z-index');
+                var itemZIndex = $(this).css('z-users');
                 if (itemZIndex !== 'auto' && Number(itemZIndex) !== 0) parentsZindex.push(Number(itemZIndex));
             });
             var zIndex = Math.max.apply(Math, parentsZindex) + this.o.zIndexOffset;

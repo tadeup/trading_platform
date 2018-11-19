@@ -15,8 +15,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/profile', function(req, res, next) {
-    res.render('profile', {
-        layout: 'layout-dashboard',
+    res.render('dashboard/profile', {
+        layout: 'dashboard',
         active: {
             'profile': true
         }});
@@ -41,7 +41,7 @@ router.get('/market/:assetName', function(req, res, next) {
                     const UserOffersSell = sellOffers
                         .filter(offer => `${offer.ownerId}` === `${req.user._id}`);
                     var contextObj = {
-                        layout: 'layout-dashboard',
+                        layout: 'dashboard',
                         sellOffers,
                         buyOffers,
                         UserOffersBuy,
@@ -53,7 +53,7 @@ router.get('/market/:assetName', function(req, res, next) {
                             'market': true,
                         }};
                     contextObj.active[`${assetName}`] = true;
-                    res.render('market', contextObj);
+                    res.render('dashboard/market', contextObj);
                 }
             });
         }
@@ -61,8 +61,8 @@ router.get('/market/:assetName', function(req, res, next) {
 });
 
 router.get('/info', function(req, res, next) {
-    res.render('info', {
-        layout: 'layout-dashboard',
+    res.render('dashboard/info', {
+        layout: 'dashboard',
         active: {
             'info': true
         }});

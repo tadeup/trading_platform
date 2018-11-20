@@ -24,7 +24,7 @@ const UserSchema = mongoose.Schema({
         min: 0,
         default: constants.initialMoney
     },
-    assetsOwned: {
+    assetPositions: {
         stockA:{
             type: Number,
             min: -100,

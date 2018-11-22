@@ -27,9 +27,9 @@ function buyController(req, res, next) {
         return;
     }
 
-    let setObject = helpers.setAssetPosition(asset, currentUser, buyQuantity * buyPrice);
+    let setObject = helpers.setAssetPosition(asset, currentUser, buyQuantity);
 
-    User.findByIdAndUpdate(req.user, {$set: setObject})
+    User.findByIdAndUpdate(req.user, {$inc: setObject})
         .then((user) => {
             if(!user){
                 return res.status(404).send();
@@ -37,6 +37,7 @@ function buyController(req, res, next) {
 
             return SellOffer
                 .find({sellPrice: {$lte: buyPrice}})
+                .where({sellQuantity: {$gt: 0}})
                 .sort({sellPrice:'ascending'})
         }).then(async (docs) => {
         let newBuyOffer = new BuyOffer({

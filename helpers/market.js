@@ -18,9 +18,9 @@ module.exports = {
         req.flash(success ? 'success_msg' : 'error_msg', message);
         res.redirect('back');
     },
-    setAssetPosition: function (asset, currentUser, pxq) {
+    setAssetPosition: function (asset, currentUser, q) {
         let setObject = {};
-        setObject[`assetPositions.${asset}`] = currentUser.assetPositions[asset] + pxq;
+        setObject[`assetPositions.${asset}`] = q;
         return setObject;
     },
     hasMargin: function (p, q, currentUser, margin, type) {

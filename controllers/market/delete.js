@@ -16,16 +16,17 @@ function deleteOfferController (req, res, next) {
                 } else {
                     throw 403;
                 }
-            }).then((deletedObj) => {
-            var setObject = {};
-            setObject[`assetPositions.${deletedObj.asset}`] = req.user.assetPositions[deletedObj.asset] + deletedObj.sellQuantity;
-            return User.findByIdAndUpdate(req.user, {$set: setObject});
-        }).then((ob) => {
-            return res.status(200).send('Successfully deleted');
-        }).catch((e) => {
-            return res.status(e).send();
-        });
-        res.send('sell');
+            })
+            .then((deletedObj) => {
+                let setObject = {};
+                setObject[`assetPositions.${deletedObj.asset}`] = req.user.assetPositions[deletedObj.asset] + deletedObj.sellQuantity;
+                return User.findByIdAndUpdate(req.user, {$set: setObject});
+            })
+            .then((ob) => {
+                return res.status(200).send('Successfully deleted');
+            }).catch((e) => {
+                return res.status(e).send();
+            });
     } else if (offerType === 'buy'){
         BuyOffer.findById(offerId)
             .then((offer) => {
@@ -36,10 +37,14 @@ function deleteOfferController (req, res, next) {
                 }
             })
             .then((deletedObj) => {
+                let setObject = {};
+                setObject[`assetPositions.${deletedObj.asset}`] = req.user.assetPositions[deletedObj.asset] - deletedObj.buyQuantity;
+                return User.findByIdAndUpdate(req.user, {$set: setObject});
+            }).then((ob) => {
                 return res.status(200).send('Successfully deleted');
             }).catch((e) => {
-            return res.status(e).send();
-        });
+                return res.status(e).send();
+            });
     } else {
         res.status(404).send()
     }

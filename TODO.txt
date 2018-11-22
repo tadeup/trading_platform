@@ -1,0 +1,1 @@
+>DELETE rout for offers delete even if part of the offer has been traded

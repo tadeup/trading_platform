@@ -23,7 +23,7 @@ module.exports = {
         setObject[`assetPositions.${asset}`] = q;
         return setObject;
     },
-    hasMargin: function (p, q, currentUser, margin, type) {
+    hasMargin: function (asset ,p, q, currentUser, margin, type) {
         let sum = 0;
         let e = currentUser.assetPositions.toJSON();
         for( let el in e ) {
@@ -33,9 +33,14 @@ module.exports = {
         }
         console.log(sum, margin, currentUser.money);
         if (type === "buy"){
-            return p * q < margin + currentUser.money - sum
+            return (q < -currentUser.assetPositions[asset]) ?
+                true :
+                p * q < margin + currentUser.money - sum
+
         } else if (type === "sell") {
-            return p * q < margin + currentUser.money + sum
+            return (q < currentUser.assetPositions[asset]) ?
+                true :
+                p * q < margin + currentUser.money + sum
         } else {
             throw "type argument must equal 'buy' or 'sell'"
         }

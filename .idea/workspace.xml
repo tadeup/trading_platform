@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9db61109-f84c-401d-a8d7-0848b1b3ccb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/market/buy.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/market/buy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/market/delete.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/market/delete.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/market/sell.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/market/sell.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helpers/market.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/market.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/dashboard/market.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/dashboard/market.handlebars" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,7 +52,7 @@
         <counts>
           <entry key="gitignore" value="38" />
           <entry key="handlebars" value="1" />
-          <entry key="js" value="2350" />
+          <entry key="js" value="2440" />
           <entry key="json" value="108" />
           <entry key="txt" value="75" />
           <entry key="www" value="64" />
@@ -65,7 +62,7 @@
         <counts>
           <entry key="Handlebars/Mustache" value="1" />
           <entry key="JSON" value="108" />
-          <entry key="JavaScript" value="2414" />
+          <entry key="JavaScript" value="2504" />
           <entry key="PLAIN_TEXT" value="113" />
         </counts>
       </usages-collector>
@@ -76,8 +73,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/market/buy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="31" column="55" lean-forward="true" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+            <state relative-caret-position="204">
+              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -85,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/market/sell.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="29" column="78" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
+            <state relative-caret-position="306">
+              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -94,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helpers/market.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+            <state relative-caret-position="136">
+              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -152,6 +149,7 @@
       <find>console</find>
       <find>console.log</find>
       <find>setAssetPosition</find>
+      <find>toJSON</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -174,9 +172,9 @@
         <option value="$PROJECT_DIR$/models/Users.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/dashboard/market.handlebars" />
-        <option value="$PROJECT_DIR$/controllers/market/sell.js" />
         <option value="$PROJECT_DIR$/TODO.txt" />
         <option value="$PROJECT_DIR$/controllers/market/delete.js" />
+        <option value="$PROJECT_DIR$/controllers/market/sell.js" />
         <option value="$PROJECT_DIR$/helpers/market.js" />
         <option value="$PROJECT_DIR$/controllers/market/buy.js" />
       </list>
@@ -307,12 +305,12 @@
       <workItem from="1542217038421" duration="1343000" />
       <workItem from="1542539538973" duration="8403000" />
       <workItem from="1542627168581" duration="43997000" />
-      <workItem from="1542906807048" duration="2530000" />
+      <workItem from="1542906807048" duration="4753000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56273000" />
+    <option name="totallyTimeSpent" value="58496000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -324,7 +322,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16325182" />
@@ -512,13 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/market/sell.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="29" column="78" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/market.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -526,17 +517,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/market/sell.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/helpers/market.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        <state relative-caret-position="136">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/market/buy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="31" column="55" lean-forward="true" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+        <state relative-caret-position="204">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
         </state>
       </provider>
     </entry>

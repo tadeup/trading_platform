@@ -22,7 +22,7 @@ async function sellController(req, res, next) {
         return;
     }
 
-    if (!helpers.hasMargin(sellPrice,sellQuantity, currentUser, constants.margin, "sell")){
+    if (!helpers.hasMargin(asset,sellPrice,sellQuantity, currentUser, constants.margin, "sell")){
         helpers.redirectBack("You don't have enough margin!", false, req, res);
         return;
     }

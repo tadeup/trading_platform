@@ -22,7 +22,7 @@ function buyController(req, res, next) {
         return;
     }
 
-    if (!helpers.hasMargin(buyPrice, buyQuantity, currentUser, constants.margin, "buy")){
+    if (!helpers.hasMargin(asset, buyPrice, buyQuantity, currentUser, constants.margin, "buy")){
         helpers.redirectBack("You don't have enough margin!", false, req, res);
         return;
     }

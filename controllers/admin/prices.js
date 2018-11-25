@@ -16,7 +16,7 @@ async function pricesController(req, res, next) {
             time : moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss'),
             price : a.buyPrice}
     });
-    
+
     let contextObj = {
         layout: 'admin',
         timesAndPrices,

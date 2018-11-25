@@ -1,0 +1,51 @@
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card col-md-3">
+            <form method="get" action="/admin/prices">
+                <div class="form-group text-center">
+                    <label class="asset-label" for="assetNameAdmin">Asset</label>
+                    <select type="text" class="form-control" id="assetNameAdmin" aria-describedby="AssetName" name="asset">
+                        <option value="stockA">A</option>
+                        <option value="stockB">B</option>
+                        <option value="stockC">C</option>
+                    </select>
+                </div>
+                <div class="form-group text-center">
+                    <label class="asset-label" for="timeInSeconds">Time In Seconds</label>
+                    <input type="number" class="form-control" min="1" id="timeInSeconds" placeholder="1" name="timeInSeconds">
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-outline-dark">SEARCH</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">PRICE HISTORY</h4>
+                    </div>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table ">
+                            <thead>
+                            <th>TIME</th>
+                            <th>PRICE</th>
+
+                            </thead>
+                            <tbody>
+                            {{#each timesAndPrices}}
+                                <tr>
+                                    <td>{{{time}}}</td>
+                                    <td>{{{price}}}</td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

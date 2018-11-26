@@ -28,11 +28,11 @@ router.get('/market', function(req, res, next) {
 
 router.get('/market/:assetName', function(req, res, next) {
     const {assetName} = req.params;
-    SellOffer.find({asset: assetName, sellQuantity: {$gt:0}}, function (err, sellOffers) {
+    SellOffer.find({asset: assetName, sellQuantity: {$gt:0}}).sort({sellPrice:1}).exec(function (err, sellOffers) {
         if(err){
             console.log(err);
         } else {
-            BuyOffer.find({asset: assetName, buyQuantity: {$gt:0}}, function (err, buyOffers) {
+            BuyOffer.find({asset: assetName, buyQuantity: {$gt:0}}).sort({buyPrice:-1}).exec(function (err, buyOffers) {
                 if(err){
                     console.log(err);
                 } else {

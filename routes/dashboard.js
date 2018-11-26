@@ -40,6 +40,7 @@ router.get('/market/:assetName', function(req, res, next) {
                         .filter(offer => `${offer.ownerId}` === `${req.user._id}`);
                     const UserOffersSell = sellOffers
                         .filter(offer => `${offer.ownerId}` === `${req.user._id}`);
+                    // const Offers =
                     var contextObj = {
                         layout: 'dashboard',
                         sellOffers,

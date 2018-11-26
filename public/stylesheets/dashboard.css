@@ -1,0 +1,17 @@
+#market-left-div {
+    padding-right:0;
+}
+
+#market-right-div {
+    padding-left:0;
+}
+
+#market-left-card {
+    border-right: none;
+    border-radius: 0;
+}
+
+#market-right-card {
+    border-left: none;
+    border-radius: 0;
+}

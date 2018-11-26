@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="buyPrice">Price</label>
-                                    <input type="number" class="form-control" min="0" id="buyPrice" placeholder="0" name="buyPrice">
+                                    <input type="number" step=".01" class="form-control" min="0" id="buyPrice" placeholder="0" name="buyPrice">
                                 </div>
                                 <input type="hidden" name="asset" value={{{assetName}}}>
                                 <div class="text-center">
@@ -124,11 +124,11 @@
                             <form method="post" action="/market/sell">
                                 <div class="form-group">
                                     <label for="sellQuantity">Quantity</label>
-                                    <input type="number" class="form-control" min="0" id="sellQuantity" placeholder="0" name="sellQuantity">
+                                    <input type="number"  class="form-control" min="0" id="sellQuantity" placeholder="0" name="sellQuantity">
                                 </div>
                                 <div class="form-group">
                                     <label for="sellPrice">Price</label>
-                                    <input type="number" class="form-control" min="0" id="sellPrice" placeholder="0" name="sellPrice">
+                                    <input type="number" step=".01" class="form-control" min="0" id="sellPrice" placeholder="0" name="sellPrice">
                                 </div>
                                 <input type="hidden" name="asset" value={{{assetName}}}>
                                 <div class="text-center">
@@ -142,23 +142,23 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
-                <div class="card strpied-tabled-with-hover">
+            <div class="col-md-6" id="market-left-div">
+                <div class="card strpied-tabled-with-hover" id="market-left-card">
                     <div class="card-header ">
-                        <h4 class="card-title">Buy Offers</h4>
-                        <p class="card-category">Current buy offers for the selected asset</p>
+                        <h4 class="card-title text-center">Buy Offers</h4>
+                        <p class="card-category text-center">Current buy offers for the selected asset</p>
                     </div>
                     <div class="card-body table-full-width table-responsive">
                         <table class="table table-hover table-striped">
                             <thead>
-                            <th>Price</th>
                             <th>Quantity</th>
+                            <th>Price</th>
                             </thead>
                             <tbody>
                             {{#each buyOffers}}
                                 <tr>
-                                    <td>{{{buyPrice}}}</td>
                                     <td>{{{buyQuantity}}}</td>
+                                    <td>{{{buyPrice}}}</td>
                                 </tr>
                             {{/each}}
                             </tbody>
@@ -166,11 +166,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card strpied-tabled-with-hover">
+            <div class="col-md-6" id="market-right-div">
+                <div class="card strpied-tabled-with-hover" id="market-right-card">
                     <div class="card-header ">
-                        <h4 class="card-title">Sell Offers</h4>
-                        <p class="card-category">Current sell offers for the selected asset</p>
+                        <h4 class="card-title text-center">Sell Offers</h4>
+                        <p class="card-category text-center">Current sell offers for the selected asset</p>
                     </div>
                     <div class="card-body table-full-width table-responsive">
                         <table class="table table-hover table-striped">

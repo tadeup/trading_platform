@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db61109-f84c-401d-a8d7-0848b1b3ccb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/routes/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/dashboard.js" afterDir="false" />
-    </list>
+    <list default="true" id="9db61109-f84c-401d-a8d7-0848b1b3ccb9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -34,7 +32,7 @@
           <entry key="gitignore" value="2" />
           <entry key="handlebars" value="19" />
           <entry key="hbs" value="4" />
-          <entry key="js" value="72" />
+          <entry key="js" value="73" />
           <entry key="json" value="5" />
           <entry key="txt" value="1" />
           <entry key="www" value="6" />
@@ -45,7 +43,7 @@
           <entry key="CSS" value="7" />
           <entry key="Handlebars/Mustache" value="21" />
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="78" />
+          <entry key="JavaScript" value="79" />
           <entry key="PLAIN_TEXT" value="5" />
         </counts>
       </usages-collector>
@@ -54,7 +52,7 @@
           <entry key="css" value="79" />
           <entry key="gitignore" value="38" />
           <entry key="handlebars" value="597" />
-          <entry key="js" value="3359" />
+          <entry key="js" value="3366" />
           <entry key="json" value="108" />
           <entry key="txt" value="75" />
           <entry key="www" value="64" />
@@ -65,7 +63,7 @@
           <entry key="CSS" value="79" />
           <entry key="Handlebars/Mustache" value="597" />
           <entry key="JSON" value="108" />
-          <entry key="JavaScript" value="3423" />
+          <entry key="JavaScript" value="3430" />
           <entry key="PLAIN_TEXT" value="113" />
         </counts>
       </usages-collector>
@@ -96,20 +94,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/helpers/market.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="92" selection-start-line="7" selection-start-column="92" selection-end-line="7" selection-end-column="92" />
+            <state relative-caret-position="204">
+              <caret line="12" column="94" selection-start-line="12" selection-start-column="94" selection-end-line="12" selection-end-column="94" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="34" column="83" selection-start-line="34" selection-start-column="83" selection-end-line="34" selection-end-column="83" />
+              <caret line="34" column="85" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/constants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -192,10 +199,11 @@
         <option value="$PROJECT_DIR$/controllers/admin/prices.js" />
         <option value="$PROJECT_DIR$/views/admin/students.handlebars" />
         <option value="$PROJECT_DIR$/controllers/admin/students.js" />
-        <option value="$PROJECT_DIR$/helpers/market.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/dashboard.css" />
         <option value="$PROJECT_DIR$/views/dashboard/market.handlebars" />
         <option value="$PROJECT_DIR$/routes/dashboard.js" />
+        <option value="$PROJECT_DIR$/helpers/market.js" />
+        <option value="$PROJECT_DIR$/config/constants.js" />
       </list>
     </option>
   </component>
@@ -237,6 +245,11 @@
               <item name="trading03" type="b2602c69:ProjectViewProjectNode" />
               <item name="trading03" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trading03" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trading03" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trading03" type="b2602c69:ProjectViewProjectNode" />
@@ -324,12 +337,12 @@
       <workItem from="1542970075171" duration="4575000" />
       <workItem from="1543088586759" duration="595000" />
       <workItem from="1543155741198" duration="17186000" />
-      <workItem from="1543239537042" duration="4717000" />
+      <workItem from="1543239537042" duration="5262000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88106000" />
+    <option name="totallyTimeSpent" value="88651000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -442,9 +455,6 @@
           <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/constants.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/TODO.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -589,20 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/helpers/market.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="92" selection-start-line="7" selection-start-column="92" selection-end-line="7" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/dashboard/market.handlebars">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -613,7 +609,28 @@
     <entry file="file://$PROJECT_DIR$/routes/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="34" column="83" selection-start-line="34" selection-start-column="83" selection-end-line="34" selection-end-column="83" />
+          <caret line="34" column="85" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/dashboard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers/market.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="94" selection-start-line="12" selection-start-column="94" selection-end-line="12" selection-end-column="94" />
         </state>
       </provider>
     </entry>

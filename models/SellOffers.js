@@ -14,8 +14,14 @@ const SellOfferSchema = mongoose.Schema({
     sellQuantity: {
         type: Number
     },
+    originalQuantity: {
+        type: Number
+    },
     dateCreated: {
         type: Date
+    },
+    wasDeleted: {
+        type: Boolean
     },
     dateCompleted: {
         type: Date

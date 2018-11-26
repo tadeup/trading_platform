@@ -43,6 +43,7 @@ function buyController(req, res, next) {
         let newBuyOffer = new BuyOffer({
             asset,
             buyQuantity,
+            originalQuantity: buyQuantity,
             buyPrice,
             'dateCreated': new Date().getTime(),
             ownerId: currentUser._id

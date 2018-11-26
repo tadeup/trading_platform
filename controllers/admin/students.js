@@ -17,7 +17,7 @@ async function studentsController(req, res, next) {
             .map(a => {
                 return {
                     asset: a.asset,
-                    q: a.buyQuantity,
+                    q: a.originalQuantity,
                     p: a.buyPrice,
                     dateCreated : moment(a.dateCreated).format('YYYY-DD-MM HH:mm:ss'),
                     dateCompleted : moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss'),}
@@ -26,7 +26,7 @@ async function studentsController(req, res, next) {
                 .map(a => {
                     return {
                         asset: a.asset,
-                        q: a.sellQuantity,
+                        q: a.originalQuantity,
                         p: a.sellPrice,
                         dateCreated : moment(a.dateCreated).format('YYYY-DD-MM HH:mm:ss'),
                         dateCompleted : a.dateCompleted

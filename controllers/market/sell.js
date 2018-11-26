@@ -43,6 +43,7 @@ async function sellController(req, res, next) {
             let newSellOffer = new SellOffer({
                 asset,
                 sellQuantity,
+                originalQuantity: sellQuantity,
                 sellPrice,
                 'dateCreated':new Date().getTime(),
                 ownerId: currentUser._id

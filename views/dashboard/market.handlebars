@@ -149,16 +149,16 @@
                         <p class="card-category text-center">Current buy offers for the selected asset</p>
                     </div>
                     <div class="card-body table-full-width table-responsive">
-                        <table class="table table-hover table-striped">
+                        <table class="table table-hover text-center">
                             <thead>
-                            <th>Quantity</th>
-                            <th>Price</th>
+                            <th class="custom-market-table text-center">Quantity</th>
+                            <th class="custom-market-table text-center">Price</th>
                             </thead>
                             <tbody>
                             {{#each buyOffers}}
                                 <tr>
-                                    <td>{{{buyQuantity}}}</td>
-                                    <td>{{{buyPrice}}}</td>
+                                    <td class="custom-market-table">{{{buyQuantity}}}</td>
+                                    <td class="custom-market-table">{{{buyPrice}}}</td>
                                 </tr>
                             {{/each}}
                             </tbody>
@@ -173,16 +173,16 @@
                         <p class="card-category text-center">Current sell offers for the selected asset</p>
                     </div>
                     <div class="card-body table-full-width table-responsive">
-                        <table class="table table-hover table-striped">
+                        <table class="table table-hover text-center">
                             <thead>
-                            <th>Price</th>
-                            <th>Quantity</th>
+                            <th class="custom-market-table text-center">Price</th>
+                            <th class="custom-market-table text-center">Quantity</th>
                             </thead>
                             <tbody>
                             {{#each sellOffers}}
                                 <tr>
-                                    <td>{{{sellPrice}}}</td>
-                                    <td>{{{sellQuantity}}}</td>
+                                    <td class="custom-market-table text-center">{{{sellPrice}}}</td>
+                                    <td class="custom-market-table text-center">{{{sellQuantity}}}</td>
                                 </tr>
                             {{/each}}
                             </tbody>

@@ -8,10 +8,24 @@
 
 #market-left-card {
     border-right: none;
+    border-bottom: none;
     border-radius: 0;
 }
 
 #market-right-card {
     border-left: none;
+    border-bottom: none;
     border-radius: 0;
+}
+
+.table-hover {
+    margin: auto;
+}
+
+div table thead .custom-market-table {
+    text-align: center!important;
+}
+
+.custom-market-table {
+    border-top: none!important;
 }

@@ -19,8 +19,12 @@ async function studentsController(req, res, next) {
                     asset: a.asset,
                     q: a.originalQuantity,
                     p: a.buyPrice,
+                    offerType: 'buy',
                     dateCreated : moment(a.dateCreated).format('YYYY-DD-MM HH:mm:ss'),
-                    dateCompleted : moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss'),}
+                    dateCompleted : a.dateCompleted
+                        ? moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss')
+                        : "UNCOMPLETED"
+                }
                 })
             .concat(studentSellOffers
                 .map(a => {
@@ -28,6 +32,7 @@ async function studentsController(req, res, next) {
                         asset: a.asset,
                         q: a.originalQuantity,
                         p: a.sellPrice,
+                        offerType: 'sell',
                         dateCreated : moment(a.dateCreated).format('YYYY-DD-MM HH:mm:ss'),
                         dateCompleted : a.dateCompleted
                             ? moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss')

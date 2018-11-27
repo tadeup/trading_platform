@@ -12,15 +12,15 @@ function deleteOfferController (req, res, next) {
         SellOffer.findById(offerId)
             .then((offer) => {
                 if (req.user && `${offer.ownerId}` === `${req.user._id}`) {
-                    return SellOffer.findByIdAndDelete(offerId)
+                    return SellOffer.findByIdAndUpdate(offerId, {sellQuantity: 0, wasDeleted: true})
                 } else {
                     throw 403;
                 }
             })
             .then((deletedObj) => {
                 let setObject = {};
-                setObject[`assetPositions.${deletedObj.asset}`] = req.user.assetPositions[deletedObj.asset] + deletedObj.sellQuantity;
-                return User.findByIdAndUpdate(req.user, {$set: setObject});
+                setObject[`assetPositions.${deletedObj.asset}`] = deletedObj.sellQuantity;
+                return User.findByIdAndUpdate(req.user, {$inc: setObject});
             })
             .then((ob) => {
                 return res.status(200).send('Successfully deleted');
@@ -31,15 +31,15 @@ function deleteOfferController (req, res, next) {
         BuyOffer.findById(offerId)
             .then((offer) => {
                 if (req.user && `${offer.ownerId}` === `${req.user._id}`) {
-                    return BuyOffer.findByIdAndDelete(offerId)
+                    return BuyOffer.findByIdAndUpdate(offerId, {buyQuantity: 0, wasDeleted: true})
                 } else {
                     throw 403;
                 }
             })
             .then((deletedObj) => {
                 let setObject = {};
-                setObject[`assetPositions.${deletedObj.asset}`] = req.user.assetPositions[deletedObj.asset] - deletedObj.buyQuantity;
-                return User.findByIdAndUpdate(req.user, {$set: setObject});
+                setObject[`assetPositions.${deletedObj.asset}`] = - deletedObj.buyQuantity;
+                return User.findByIdAndUpdate(req.user, {$inc: setObject});
             }).then((ob) => {
                 return res.status(200).send('Successfully deleted');
             }).catch((e) => {

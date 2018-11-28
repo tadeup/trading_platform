@@ -1,45 +1,28 @@
 const moment = require('moment');
 
 const {User} = require('../../models/Users');
-const {BuyOffer} = require('../../models/BuyOffers');
-const {SellOffer} = require('../../models/SellOffers');
+const {Offer} = require('../../models/Offers');
 
 async function studentsController(req, res, next) {
     const students = await User.find({isAdmin: false}).exec();
-    let offers;
 
     if(req.query.student){
         const {student} = req.query;
-        const studentBuyOffers = await BuyOffer.find({ownerId: student}).exec();
-        const studentSellOffers = await SellOffer.find({ownerId: student}).exec();
+        const studentOffers = await Offer.findByOwnerID(student).exec();
 
-        offers = studentBuyOffers
+        var offers = studentOffers
             .map(a => {
                 return {
                     asset: a.asset,
                     q: a.originalQuantity,
-                    p: a.buyPrice,
-                    offerType: 'buy',
+                    p: a.price,
+                    offerType: a.isBuy ? 'buy' : 'sell',
                     dateCreated : moment(a.dateCreated).format('YYYY-DD-MM HH:mm:ss'),
                     dateCompleted : a.dateCompleted
                         ? moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss')
                         : "UNCOMPLETED"
                 }
-                })
-            .concat(studentSellOffers
-                .map(a => {
-                    return {
-                        asset: a.asset,
-                        q: a.originalQuantity,
-                        p: a.sellPrice,
-                        offerType: 'sell',
-                        dateCreated : moment(a.dateCreated).format('YYYY-DD-MM HH:mm:ss'),
-                        dateCompleted : a.dateCompleted
-                            ? moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss')
-                            : "UNCOMPLETED"
-                    }
-                })
-            )
+            })
     }
 
     let contextObj = {

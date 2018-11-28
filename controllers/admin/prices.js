@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-const {BuyOffer} = require('../../models/BuyOffers');
+const {Offer} = require('../../models/Offers');
 
 async function pricesController(req, res, next) {
     const {
@@ -10,11 +10,12 @@ async function pricesController(req, res, next) {
         }
     } = req;
 
-    let allTimes = await BuyOffer.find({dateCompleted: {$exists: true}}).sort({dateCompleted: 'asc'}).exec();
+    let allTimes = await Offer.find({dateCompleted: {$exists: true}}).sort({dateCompleted: 'asc'}).exec();
     let timesAndPrices = allTimes.map(a => {
         return {
             time : moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss'),
-            price : a.buyPrice}
+            price : a.price
+        }
     });
 
     let contextObj = {

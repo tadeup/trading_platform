@@ -1,6 +1,5 @@
 const {User} = require('../../models/Users');
-const {SellOffer} = require('../../models/SellOffers');
-const {BuyOffer} = require('../../models/BuyOffers');
+const {Offer} = require('../../models/Offers');
 const {constants} = require('../../config/constants');
 
 const helpers = require('../../helpers/market');
@@ -9,8 +8,8 @@ async function sellController(req, res, next) {
     let {
         body: {
             asset,
-            sellQuantity,
-            sellPrice
+            quantity,
+            price
         }
     } = req;
 
@@ -22,12 +21,12 @@ async function sellController(req, res, next) {
         return;
     }
 
-    if (!helpers.hasMargin(asset,sellPrice,sellQuantity, currentUser, constants.margin, "sell")){
+    if (!helpers.hasMargin(asset, price, quantity, currentUser, constants.margin, "sell")){
         helpers.redirectBack("You don't have enough margin!", false, req, res);
         return;
     }
 
-    let setObject = helpers.setAssetPosition(asset, currentUser, -sellQuantity);
+    let setObject = helpers.setAssetPosition(asset, currentUser, -quantity);
 
     User.findByIdAndUpdate(req.user, {$inc: setObject})
         .then((user) => {
@@ -35,58 +34,54 @@ async function sellController(req, res, next) {
                 return res.status(404).send();
             }
 
-            return BuyOffer
-                .find({buyPrice: {$gte: sellPrice}})
-                .where({buyQuantity: {$gt: 0}})
-                .sort({buyPrice:'descending'})
+            return Offer
+                .find({price: {$gte: price}})
+                .where({isBuy: true})
+                .where({quantity: {$gt: 0}})
+                .sort({price:'descending'})
         }).then(async (docs) => {
-            let newSellOffer = new SellOffer({
+            let newOffer = new Offer({
                 asset,
-                sellQuantity,
-                originalQuantity: sellQuantity,
-                sellPrice,
+                quantity,
+                originalQuantity: quantity,
+                price,
                 'dateCreated':new Date().getTime(),
-                ownerId: currentUser._id
+                ownerId: currentUser._id,
+                isBuy: false
             });
 
             if (docs) {
                 let j = 0;
                 let pxq;
                 let currDate = new Date().getTime();
-                while (newSellOffer.sellQuantity > 0 && j < docs.length) {
-                    if (newSellOffer.sellQuantity > docs[j].buyQuantity){
-                        pxq = docs[j].buyQuantity * newSellOffer.sellPrice;
-                        let setObject = {};
-                        setObject[`assetsOwned.${asset}`] = docs[j].buyQuantity;
-                        setObject[`money`] = -pxq;
-                        const p1 = User.findByIdAndUpdate(docs[j].ownerId, {$inc: setObject}).exec();
+                while (newOffer.quantity > 0 && j < docs.length) {
+                    if (newOffer.quantity > docs[j].quantity){
+                        pxq = docs[j].quantity * newOffer.price;
+                        const p1 = User.findByIdAndUpdate(docs[j].ownerId, {$inc: {money: -pxq}}).exec();
                         const p2 = User.findByIdAndUpdate(currentUser._id, {$inc: {money: pxq}}).exec();
-                        newSellOffer.sellQuantity -= docs[j].buyQuantity;
-                        const p3 = BuyOffer.findByIdAndUpdate(docs[j]._id, {buyQuantity: 0, dateCompleted: currDate}).exec();
+                        newOffer.quantity -= docs[j].quantity;
+                        const p3 = Offer.findByIdAndUpdate(docs[j]._id, {quantity: 0, dateCompleted: currDate}).exec();
                         await Promise.all([p1, p2, p3]);
                         j++;
                     } else {
                         let p3;
-                        let newBuyQuant = docs[j].buyQuantity - newSellOffer.sellQuantity;
-                        pxq = newSellOffer.sellQuantity * newSellOffer.sellPrice;
-                        let setObject = {};
-                        setObject[`assetsOwned.${asset}`] = newSellOffer.sellQuantity;
-                        setObject[`money`] = -pxq;
-                        const p1 = User.findByIdAndUpdate(docs[j].ownerId, {$inc: setObject}).exec();
+                        let newQuantityX = docs[j].quantity - newOffer.quantity;
+                        pxq = newOffer.quantity * newOffer.price;
+                        const p1 = User.findByIdAndUpdate(docs[j].ownerId, {$inc: {money: -pxq}}).exec();
                         const p2 = User.findByIdAndUpdate(currentUser._id, {$inc: {money: pxq}}).exec();
-                        if(newSellOffer.sellQuantity === docs[j].buyQuantity){
-                            p3 = BuyOffer.findByIdAndUpdate(docs[j]._id, {buyQuantity: 0, dateCompleted: currDate}).exec();
+                        if(newOffer.quantity === docs[j].quantity){
+                            p3 = Offer.findByIdAndUpdate(docs[j]._id, {quantity: 0, dateCompleted: currDate}).exec();
                         } else {
-                            p3 = BuyOffer.findByIdAndUpdate(docs[j]._id, {buyQuantity: newBuyQuant}).exec();
+                            p3 = Offer.findByIdAndUpdate(docs[j]._id, {quantity: newQuantityX}).exec();
                         }
-                        newSellOffer.sellQuantity = 0;
-                        newSellOffer.dateCompleted = currDate;
+                        newOffer.quantity = 0;
+                        newOffer.dateCompleted = currDate;
                         await Promise.all([p1, p2, p3]);
                     }
                 }
             }
-            return newSellOffer.save(newSellOffer)
-        }).then((sellOffer) => {
+            return newOffer.save(newOffer)
+        }).then((offer) => {
             helpers.redirectBack('Sell offer created', true, req, res);
         }).catch((e) => {
             console.log(e);

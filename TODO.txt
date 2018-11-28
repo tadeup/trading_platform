@@ -1,2 +1,8 @@
->DELETE rout for offers delete even if part of the offer has been traded
+
 >Merge buy and sell schemas
+
+>change "helper.hasMargin" to User schema method
+
+>change "helper.setAssetPosition" to User schema method that also changes money
+
+>handle buy and sell offers giving redundant completeTimes if they match exactely

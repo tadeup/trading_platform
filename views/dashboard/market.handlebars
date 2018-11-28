@@ -62,8 +62,8 @@
                                 {{#each UserOffersBuy}}
                                     <tr>
                                         <td>Buy</td>
-                                        <td>{{{buyQuantity}}}</td>
-                                        <td>{{{buyPrice}}}</td>
+                                        <td>{{{quantity}}}</td>
+                                        <td>{{{price}}}</td>
                                         <td>
                                             <a href="#" style="color:red" class="delete-offer buy-offer" data-id="{{{_id}}}">
                                                 <i class="nc-icon nc-simple-remove"></i>
@@ -74,8 +74,8 @@
                                 {{#each UserOffersSell}}
                                     <tr>
                                         <td>Sell</td>
-                                        <td>{{{sellPrice}}}</td>
-                                        <td>{{{sellQuantity}}}</td>
+                                        <td>{{{price}}}</td>
+                                        <td>{{{quantity}}}</td>
                                         <td>
                                             <a href="#" style="color:red" class="delete-offer sell-offer" data-id="{{{_id}}}">
                                                 <i class="nc-icon nc-simple-remove"></i>
@@ -99,11 +99,11 @@
                             <form method="post" action="/market/buy" class="market-form">
                                 <div class="form-group">
                                     <label for="buyQuantity">Quantity</label>
-                                    <input type="number" class="form-control" min="0" id="buyQuantity" placeholder="0" name="buyQuantity">
+                                    <input type="number" class="form-control" min="0" id="buyQuantity" placeholder="0" name="quantity">
                                 </div>
                                 <div class="form-group">
                                     <label for="buyPrice">Price</label>
-                                    <input type="number" step=".01" class="form-control" min="0" id="buyPrice" placeholder="0" name="buyPrice">
+                                    <input type="number" step=".01" class="form-control" min="0" id="buyPrice" placeholder="0" name="price">
                                 </div>
                                 <input type="hidden" name="asset" value={{{assetName}}}>
                                 <div class="text-center">
@@ -124,11 +124,11 @@
                             <form method="post" action="/market/sell">
                                 <div class="form-group">
                                     <label for="sellQuantity">Quantity</label>
-                                    <input type="number"  class="form-control" min="0" id="sellQuantity" placeholder="0" name="sellQuantity">
+                                    <input type="number"  class="form-control" min="0" id="sellQuantity" placeholder="0" name="quantity">
                                 </div>
                                 <div class="form-group">
                                     <label for="sellPrice">Price</label>
-                                    <input type="number" step=".01" class="form-control" min="0" id="sellPrice" placeholder="0" name="sellPrice">
+                                    <input type="number" step=".01" class="form-control" min="0" id="sellPrice" placeholder="0" name="price">
                                 </div>
                                 <input type="hidden" name="asset" value={{{assetName}}}>
                                 <div class="text-center">
@@ -157,8 +157,8 @@
                             <tbody>
                             {{#each buyOffers}}
                                 <tr>
-                                    <td class="custom-market-table">{{{buyQuantity}}}</td>
-                                    <td class="custom-market-table">{{{buyPrice}}}</td>
+                                    <td class="custom-market-table">{{{quantity}}}</td>
+                                    <td class="custom-market-table">{{{price}}}</td>
                                 </tr>
                             {{/each}}
                             </tbody>
@@ -181,8 +181,8 @@
                             <tbody>
                             {{#each sellOffers}}
                                 <tr>
-                                    <td class="custom-market-table text-center">{{{sellPrice}}}</td>
-                                    <td class="custom-market-table text-center">{{{sellQuantity}}}</td>
+                                    <td class="custom-market-table text-center">{{{price}}}</td>
+                                    <td class="custom-market-table text-center">{{{quantity}}}</td>
                                 </tr>
                             {{/each}}
                             </tbody>

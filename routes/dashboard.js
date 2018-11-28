@@ -1,16 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-const {SellOffer} = require('../models/SellOffers');
-const {BuyOffer} = require('../models/BuyOffers');
+const {Offer} = require('../models/Offers');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    // res.render('dashboard', {
-    //     layout: 'layout-dashboard',
-    //     active: {
-    //         'dashboard': true
-    //     }});
     res.redirect('dashboard/profile')
 });
 
@@ -28,11 +22,19 @@ router.get('/market', function(req, res, next) {
 
 router.get('/market/:assetName', function(req, res, next) {
     const {assetName} = req.params;
-    SellOffer.find({asset: assetName, sellQuantity: {$gt:0}}).sort({sellPrice:1}).exec(function (err, sellOffers) {
+    Offer.find({asset: assetName})
+        .where({isBuy: false})
+        .where({quantity: {$gt: 0}})
+        .sort({sellPrice:1})
+        .exec(function (err, sellOffers) {
         if(err){
             console.log(err);
         } else {
-            BuyOffer.find({asset: assetName, buyQuantity: {$gt:0}}).sort({buyPrice:-1}).exec(function (err, buyOffers) {
+            Offer.find({asset: assetName})
+                .where({isBuy: true})
+                .where({quantity: {$gt: 0}})
+                .sort({buyPrice:-1})
+                .exec(function (err, buyOffers) {
                 if(err){
                     console.log(err);
                 } else {
@@ -40,7 +42,7 @@ router.get('/market/:assetName', function(req, res, next) {
                         .filter(offer => `${offer.ownerId}` === `${req.user._id}`);
                     const UserOffersSell = sellOffers
                         .filter(offer => `${offer.ownerId}` === `${req.user._id}`);
-                    // const Offers =
+
                     var contextObj = {
                         layout: 'dashboard',
                         sellOffers,

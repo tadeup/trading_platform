@@ -1,45 +1,46 @@
-const {User} = require('../../models/Users');
-const {Offer} = require('../../models/Offers');
-const {constants} = require('../../config/constants');
+module.exports = function (io) {
+    const {User} = require('../../models/Users');
+    const {Offer} = require('../../models/Offers');
+    const {constants} = require('../../config/constants');
 
-const helpers = require('../../helpers/market');
+    const helpers = require('../../helpers/market');
 
-async function sellController(req, res, next) {
-    let {
-        body: {
-            asset,
-            quantity,
-            price
-        }
-    } = req;
-
-    let currentUser = req.user;
-    let errors = helpers.checkFullBody(req, 'sell');
-
-    if (errors || !currentUser){
-        helpers.redirectBack('Please provide valid data', false, req, res);
-        return;
-    }
-
-    if (!helpers.hasMargin(asset, price, quantity, currentUser, constants.margin, "sell")){
-        helpers.redirectBack("You don't have enough margin!", false, req, res);
-        return;
-    }
-
-    let setObject = helpers.setAssetPosition(asset, currentUser, -quantity);
-
-    User.findByIdAndUpdate(req.user, {$inc: setObject})
-        .then((user) => {
-            if(!user){
-                return res.status(404).send();
+    async function sellController(req, res, next) {
+        let {
+            body: {
+                asset,
+                quantity,
+                price
             }
+        } = req;
 
-            return Offer
-                .find({price: {$gte: price}})
-                .where({isBuy: true})
-                .where({quantity: {$gt: 0}})
-                .sort({price:'descending'})
-        }).then(async (docs) => {
+        let currentUser = req.user;
+        let errors = helpers.checkFullBody(req, 'sell');
+
+        if (errors || !currentUser){
+            helpers.redirectBack('Please provide valid data', false, req, res);
+            return;
+        }
+
+        if (!helpers.hasMargin(asset, price, quantity, currentUser, constants.margin, "sell")){
+            helpers.redirectBack("You don't have enough margin!", false, req, res);
+            return;
+        }
+
+        let setObject = helpers.setAssetPosition(asset, currentUser, -quantity);
+
+        User.findByIdAndUpdate(req.user, {$inc: setObject})
+            .then((user) => {
+                if(!user){
+                    return res.status(404).send();
+                }
+
+                return Offer
+                    .find({price: {$gte: price}})
+                    .where({isBuy: true})
+                    .where({quantity: {$gt: 0}})
+                    .sort({price:'descending'})
+            }).then(async (docs) => {
             let newOffer = new Offer({
                 asset,
                 quantity,
@@ -88,6 +89,7 @@ async function sellController(req, res, next) {
             helpers.redirectBack('Ops! Something went wrong! Please contact admin.', false, req, res);
         });
 
-}
+    }
 
-module.exports = {sellController};
+    return sellController;
+};

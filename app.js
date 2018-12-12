@@ -14,13 +14,19 @@ const logger = require('morgan');
 const {ensureAuthenticated} = require('./middlewares/authenticate');
 const {mongoose} = require('./config/mongoose');
 
+// Init express app
+var app = express();
+
+// Socket.io set up
+const io = require('./sockets/market').listen();
+app.set("io", io);
+
+// Require routers
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const adminRouter = require('./routes/admin');
 const dashboardRouter = require('./routes/dashboard');
-const marketRouter = require('./routes/market');
-
-var app = express();
+const marketRouter = require('./routes/market')(io);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

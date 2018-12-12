@@ -6,3 +6,7 @@
 >change "helper.setAssetPosition" to User schema method that also changes money
 
 >handle buy and sell offers giving redundant completeTimes if they match exactely
+
+>ao efetuar troca usar preço mais alto se vende e mais baixo se compra
+
+>aparecer na hora os ativos

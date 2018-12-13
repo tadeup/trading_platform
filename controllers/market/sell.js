@@ -81,6 +81,11 @@ module.exports = function (io) {
                     }
                 }
             }
+
+            if (newOffer.quantity){
+                io.of('/dashboard').emit('newOffer', newOffer);
+            }
+
             return newOffer.save(newOffer)
         }).then((offer) => {
             helpers.redirectBack('Sell offer created', true, req, res);

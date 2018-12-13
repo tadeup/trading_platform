@@ -25,7 +25,7 @@ router.get('/market/:assetName', function(req, res, next) {
     Offer.find({asset: assetName})
         .where({isBuy: false})
         .where({quantity: {$gt: 0}})
-        .sort({sellPrice:1})
+        .sort({price:1})
         .exec(function (err, sellOffers) {
         if(err){
             console.log(err);
@@ -33,7 +33,7 @@ router.get('/market/:assetName', function(req, res, next) {
             Offer.find({asset: assetName})
                 .where({isBuy: true})
                 .where({quantity: {$gt: 0}})
-                .sort({buyPrice:-1})
+                .sort({price:-1})
                 .exec(function (err, buyOffers) {
                 if(err){
                     console.log(err);

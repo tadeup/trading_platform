@@ -154,7 +154,7 @@
                             <th class="custom-market-table text-center">Quantity</th>
                             <th class="custom-market-table text-center">Price</th>
                             </thead>
-                            <tbody>
+                            <tbody id="buy-table">
                             {{#each buyOffers}}
                                 <tr>
                                     <td class="custom-market-table">{{{quantity}}}</td>
@@ -178,7 +178,7 @@
                             <th class="custom-market-table text-center">Price</th>
                             <th class="custom-market-table text-center">Quantity</th>
                             </thead>
-                            <tbody>
+                            <tbody id="sell-table">
                             {{#each sellOffers}}
                                 <tr>
                                     <td class="custom-market-table text-center">{{{price}}}</td>

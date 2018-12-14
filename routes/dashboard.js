@@ -3,6 +3,8 @@ var router = express.Router();
 
 const {Offer} = require('../models/Offers');
 
+const {xmarketController} = require('../controllers/dashboard/xmarket');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.redirect('dashboard/profile')
@@ -62,6 +64,8 @@ router.get('/market/:assetName', function(req, res, next) {
         }
     });
 });
+
+router.get('/xmarket', xmarketController);
 
 router.get('/info', function(req, res, next) {
     res.render('dashboard/info', {

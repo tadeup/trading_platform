@@ -45,49 +45,49 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-            <div class="card strpied-tabled-with-hover">
-                        <div class="card-header ">
-                            <h4 class="card-title">Open Orders</h4>
-                            <p class="card-category">Your Currently Open Orders</p>
-                        </div>
-                        <div class="card-body table-full-width table-responsive">
-                            <table class="table table-hover table-striped">
-                                <thead>
-                                    <th>B/S</th>
-                                    <th>Amount</th>
-                                    <th>Price</th>
-                                    <th></th>
-                                </thead>
-                                <tbody>
-                                {{#each UserOffersBuy}}
-                                    <tr>
-                                        <td>Buy</td>
-                                        <td>{{{quantity}}}</td>
-                                        <td>{{{price}}}</td>
-                                        <td>
-                                            <a href="#" style="color:red" class="delete-offer buy-offer" data-id="{{{_id}}}">
-                                                <i class="nc-icon nc-simple-remove"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                {{/each}}
-                                {{#each UserOffersSell}}
-                                    <tr>
-                                        <td>Sell</td>
-                                        <td>{{{price}}}</td>
-                                        <td>{{{quantity}}}</td>
-                                        <td>
-                                            <a href="#" style="color:red" class="delete-offer sell-offer" data-id="{{{_id}}}">
-                                                <i class="nc-icon nc-simple-remove"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                {{/each}}
-                                </tbody>
-                            </table>
-                            </div>
+                <div class="card strpied-tabled-with-hover">
+                    <div class="card-header ">
+                        <h4 class="card-title">Open Orders</h4>
+                        <p class="card-category">Your Currently Open Orders</p>
+                    </div>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <th>B/S</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                            <th></th>
+                            </thead>
+                            <tbody>
+                            {{#each UserOffersBuy}}
+                                <tr>
+                                    <td>Buy</td>
+                                    <td>{{{quantity}}}</td>
+                                    <td>{{{price}}}</td>
+                                    <td>
+                                        <a href="#" style="color:red" class="delete-offer buy-offer" data-id="{{{_id}}}">
+                                            <i class="nc-icon nc-simple-remove"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            {{#each UserOffersSell}}
+                                <tr>
+                                    <td>Sell</td>
+                                    <td>{{{price}}}</td>
+                                    <td>{{{quantity}}}</td>
+                                    <td>
+                                        <a href="#" style="color:red" class="delete-offer sell-offer" data-id="{{{_id}}}">
+                                            <i class="nc-icon nc-simple-remove"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                </div>
+            </div>
 
             <div class="col-md-3">
                 <div class="card">

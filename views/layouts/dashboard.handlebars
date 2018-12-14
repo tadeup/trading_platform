@@ -55,6 +55,12 @@
                         <p>Market</p>
                     </a>
                 </li>
+                <li class="{{#if active.xmarket}}nav-item active{{/if}}"> -->
+                    <a class="nav-link" href="/dashboard/xmarket">
+                        <i class="nc-icon nc-notes"></i>
+                        <p>Global Market</p>
+                    </a>
+                </li>
                 <li  class="{{#if active.info}}nav-item active{{/if}}"> --> 
                     <a class="nav-link" href="/dashboard/info">
                         <i class="nc-icon nc-atom"></i>
@@ -75,7 +81,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg " color-on-scroll="500">
             <div class=" container-fluid  ">
-                <a class="navbar-brand" href="#pablo"> Dashboard </a>
+                <a class="navbar-brand" href="/dashboard/info"> Dashboard </a>
                 <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar burger-lines"></span>
                     <span class="navbar-toggler-bar burger-lines"></span>

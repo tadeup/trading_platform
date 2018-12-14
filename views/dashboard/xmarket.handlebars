@@ -12,37 +12,6 @@
             <div class="alert alert-danger">{{error}}</div>
         {{/if}}
 
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-2"></div>
-
-                <div class="col-md-3">
-                    <div class="form-group text-center">
-                        <label class="asset-label" for="assetName">Asset</label>
-                        <select type="text" class="form-control" id="assetName" aria-describedby="AssetName" name="asset">
-                            <option value="stockA" {{#if active.stockA}}selected{{/if}}>A</option>
-                            <option value="stockB" {{#if active.stockB}}selected{{/if}}>B</option>
-                            <option value="stockC" {{#if active.stockC}}selected{{/if}}>C</option>
-                        </select>
-                        <small id="assetHelp" class="form-text text-muted">which stock you want to buy</small>
-                    </div>
-                </div>
-
-                <div class="col-md-2"></div>
-
-                <div class="col-md-3">
-                    <div class="form-group text-center">
-                        <label class="assetPosition-label" for="assetPosition">Position</label>
-                        <p id="assetPosition"><b>{{{positionOnAsset}}}</b></p>
-                        <small id="assetPositionHelp" class="form-text text-muted">Your current position in this asset</small>
-                    </div>
-                </div>
-
-                <div class="col-md-2"></div>
-
-            </div>
-        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="card strpied-tabled-with-hover">
@@ -105,7 +74,7 @@
                                     <label for="buyPrice">Price</label>
                                     <input type="number" step=".01" class="form-control" min="0" id="buyPrice" placeholder="0" name="price">
                                 </div>
-                                <input type="hidden" name="asset" value={{{assetName}}}>
+                                <!--<input type="hidden" name="asset" value={{{assetName}}}>-->
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-outline-dark">Buy</button>
                                 </div>
@@ -130,7 +99,7 @@
                                     <label for="sellPrice">Price</label>
                                     <input type="number" step=".01" class="form-control" min="0" id="sellPrice" placeholder="0" name="price">
                                 </div>
-                                <input type="hidden" name="asset" value={{{assetName}}}>
+                                <!--<input type="hidden" name="asset" value={{{assetName}}}>-->
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-outline-dark">Sell</button>
                                 </div>

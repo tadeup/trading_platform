@@ -1,3 +1,5 @@
+const {Offer} = require('../../models/Offers');
+
 async function xmarketController(req, res, next) {
     Offer.find()
         .where({isBuy: false})
@@ -26,14 +28,11 @@ async function xmarketController(req, res, next) {
                                 buyOffers,
                                 UserOffersBuy,
                                 UserOffersSell,
-                                assetName,
                                 currentUser: req.user,
-                                positionOnAsset: req.user.assetPositions[`${assetName}`],
                                 active: {
                                     'market': true,
                                 }};
-                            contextObj.active[`${assetName}`] = true;
-                            res.render('dashboard/market', contextObj);
+                            res.render('dashboard/xmarket', contextObj);
                         }
                     });
             }

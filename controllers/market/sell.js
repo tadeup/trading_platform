@@ -36,7 +36,7 @@ module.exports = function (io) {
                 }
 
                 return Offer
-                    .find({price: {$gte: price}})
+                    .find({price: {$gte: price}, asset: asset})
                     .where({isBuy: true})
                     .where({quantity: {$gt: 0}})
                     .sort({price:'descending'})

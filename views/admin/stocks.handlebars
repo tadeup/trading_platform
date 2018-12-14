@@ -1,0 +1,45 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="card col-md-3">
+            <form method="post" action="/admin/stocks">
+                <div class="form-group text-center">
+                    <label for="stockName">stock Name</label>
+                    <input id="stockName" type="text" name="stockName">
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-outline-dark">post</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">current stocks</h4>
+                    </div>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table ">
+                            <thead>
+                            <th>stock name</th>
+                            <th>stock id</th>
+                            <th>delete</th>
+                            </thead>
+                            <tbody>
+                            {{#each stocks}}
+                                <tr>
+                                    <td>{{{stockName}}}</td>
+                                    <td>{{{_id}}}</td>
+                                    <td>
+                                        <button data-id="{{{_id}}}" type="submit" class="btn btn-outline-dark delete-stock">x</button>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const {Offer} = require('../models/Offers');
+const {Stock} = require('../models/Stocks');
 
 const {xmarketController} = require('../controllers/dashboard/xmarket');
 
@@ -18,12 +19,14 @@ router.get('/profile', function(req, res, next) {
         }});
 });
 
-router.get('/market', function(req, res, next) {
-    res.redirect('market/stockA')
+router.get('/market', async function(req, res, next) {
+    let stockNames = await Stock.findOne().exec();
+    res.redirect(`market/${stockNames.stockName}`)
 });
 
-router.get('/market/:assetName', function(req, res, next) {
+router.get('/market/:assetName', async function(req, res, next) {
     const {assetName} = req.params;
+    let stockNames = await Stock.find().exec();
     Offer.find({asset: assetName})
         .where({isBuy: false})
         .where({quantity: {$gt: 0}})
@@ -52,6 +55,7 @@ router.get('/market/:assetName', function(req, res, next) {
                         UserOffersBuy,
                         UserOffersSell,
                         assetName,
+                        stockNames,
                         currentUser: req.user,
                         positionOnAsset: req.user.assetPositions[`${assetName}`],
                         active: {

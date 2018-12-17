@@ -29,3 +29,25 @@ div table thead .custom-market-table {
 .custom-market-table {
     border-top: none!important;
 }
+
+/* The heart of the matter */
+.horizontal-scroll {
+    margin: 0;
+    max-width: 100%;
+}
+
+.horizontal-scroll > .row {
+    overflow-x: auto;
+    overflow-y: scroll;
+    max-height: 92vh;
+    white-space: nowrap;
+}
+.horizontal-scroll > .row > .horizontal-scroll-child {
+    display: inline-block;
+    float: none;
+}
+
+/* Decorations */
+.horizontal-scroll-child {padding-bottom: 20px; padding-top: 18px; }
+.horizontal-scroll-child:nth-child(2n+1) { background: #fff; }
+.horizontal-scroll-child:nth-child(2n+2) { background: #ececec; }

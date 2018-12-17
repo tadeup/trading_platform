@@ -6,6 +6,10 @@ const StocksSchema = mongoose.Schema({
     },
 });
 
+StocksSchema.statics.getStockNames = function () {
+    
+};
+
 const Stock = mongoose.model('Stock', StocksSchema);
 
 module.exports = {Stock};

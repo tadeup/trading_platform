@@ -21,6 +21,9 @@
                     <div class="form-group text-center">
                         <label class="asset-label" for="assetName">Asset</label>
                         <select type="text" class="form-control" id="assetName" aria-describedby="AssetName" name="asset">
+                            {{#stockNames}}
+                                <option value="{{{stockName}}}">{{{stockName}}}</option>
+                            {{/stockNames}}
                             <option value="stockA" {{#if active.stockA}}selected{{/if}}>A</option>
                             <option value="stockB" {{#if active.stockB}}selected{{/if}}>B</option>
                             <option value="stockC" {{#if active.stockC}}selected{{/if}}>C</option>

@@ -3,9 +3,9 @@ module.exports = {
         req.checkBody('asset', 'Asset is required').notEmpty();
 
         req.checkBody('quantity', 'quantity is required').notEmpty();
-        req.checkBody('quantity', 'quantity is required').isInt({min:1, max:99});
+        req.checkBody('quantity', 'quantity is required').isInt({min:1, max:999});
         req.checkBody('price', 'price is required').notEmpty();
-        req.checkBody('price', 'price is required').isDecimal({decimal_digits: '1,2', min:1, max:99});
+        req.checkBody('price', 'price is required').isDecimal({decimal_digits: '1,2', min:1, max:999});
 
         return req.validationErrors();
     },

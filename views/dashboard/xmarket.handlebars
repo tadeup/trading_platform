@@ -55,7 +55,7 @@
                                         {{#myOffers ../UserOffersBuy}}
                                             <tr>
                                                 <td>Buy</td>
-                                                <td>{{{quantity}}}</td>
+                                                <td class="quantity">{{{quantity}}}</td>
                                                 <td>{{{price}}}</td>
                                                 <td>
                                                     <a href="#" style="color:red" class="delete-offer buy-offer" data-id="{{{_id}}}">
@@ -67,7 +67,7 @@
                                         {{#myOffers ../UserOffersSell}}
                                             <tr>
                                                 <td>Sell</td>
-                                                <td>{{{quantity}}}</td>
+                                                <td class="quantity">{{{quantity}}}</td>
                                                 <td>{{{price}}}</td>
                                                 <td>
                                                     <a href="#" style="color:red" class="delete-offer sell-offer" data-id="{{{_id}}}">
@@ -147,14 +147,14 @@
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover text-center">
                                         <thead>
-                                        <th class="custom-market-table text-center">Quantity</th>
-                                        <th class="custom-market-table text-center">Price</th>
+                                            <th class="custom-market-table text-center">Quantity</th>
+                                            <th class="custom-market-table text-center">Price</th>
                                         </thead>
                                         <tbody id="buy-table-{{{stockName}}}">
                                         {{#assetOffers ../buyOffers}}
                                             <tr>
-                                                <td class="custom-market-table">{{{quantity}}}</td>
-                                                <td class="custom-market-table">{{{price}}}</td>
+                                                <td class="custom-market-table text-center quantity">{{{quantity}}}</td>
+                                                <td class="custom-market-table text-center price">{{{price}}}</td>
                                                 <td hidden>{{{_id}}}</td>
                                             </tr>
                                         {{/assetOffers}}
@@ -171,14 +171,14 @@
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover text-center">
                                         <thead>
-                                        <th class="custom-market-table text-center">Price</th>
-                                        <th class="custom-market-table text-center">Quantity</th>
+                                            <th class="custom-market-table text-center">Price</th>
+                                            <th class="custom-market-table text-center">Quantity</th>
                                         </thead>
                                         <tbody id="sell-table-{{{stockName}}}">
                                         {{#assetOffers ../sellOffers}}
                                             <tr>
-                                                <td class="custom-market-table text-center">{{{price}}}</td>
-                                                <td class="custom-market-table text-center">{{{quantity}}}</td>
+                                                <td class="custom-market-table text-center price">{{{price}}}</td>
+                                                <td class="custom-market-table text-center quantity">{{{quantity}}}</td>
                                                 <td hidden>{{{_id}}}</td>
                                             </tr>
                                         {{/assetOffers}}

@@ -64,6 +64,7 @@ module.exports = function (io) {
                         const p2 = User.findByIdAndUpdate(currentUser._id, {$inc: {money: -pxq}}).exec();
                         newOffer.quantity -= docs[j].quantity;
                         const p3 = Offer.findByIdAndUpdate(docs[j]._id, {quantity: 0, dateCompleted: currDate}).exec();
+                        io.of('/dashboard').emit('offerCompleted', docs[j]._id);
                         await Promise.all([p1, p2, p3]);
                         j++;
                     } else {
@@ -74,8 +75,10 @@ module.exports = function (io) {
                         const p2 = User.findByIdAndUpdate(currentUser._id, {$inc: {money: -pxq}}).exec();
                         if(newOffer.quantity === docs[j].quantity){
                             p3 = Offer.findByIdAndUpdate(docs[j]._id, {quantity: 0, dateCompleted: currDate}).exec();
+                            io.of('/dashboard').emit('offerCompleted', docs[j]._id);
                         } else {
                             p3 = Offer.findByIdAndUpdate(docs[j]._id, {quantity: newQuantityX}).exec();
+                            io.of('/dashboard').emit('offerMatched', docs[j]._id, newQuantityX);
                         }
                         newOffer.quantity = 0;
                         newOffer.dateCompleted = currDate;

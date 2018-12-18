@@ -17,7 +17,6 @@ async function xmarketController(req, res, next) {
     [sellOffers, buyOffers, stockNames] = await Promise.all([sellOffers, buyOffers, stockNames]);
 
     // stockNames = stockNames.map(stock => stock.stockName);
-    console.log(buyOffers);
     const UserOffersBuy = buyOffers
         .filter(offer => `${offer.ownerId}` === `${req.user._id}`);
     const UserOffersSell = sellOffers

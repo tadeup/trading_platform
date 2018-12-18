@@ -2,6 +2,8 @@ var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
 var bcrypt = require('bcryptjs');
 
+const {Stock} = require('./Stocks');
+
 const {constants} = require('../config/constants');
 
 const UserSchema = mongoose.Schema({
@@ -24,33 +26,33 @@ const UserSchema = mongoose.Schema({
         min: 0,
         default: constants.initialMoney
     },
-    assetPositions: {
-        stockA:{
-            type: Number,
-            min: -100,
-            default: constants.initialStockA
-        },
-        stockB: {
-            type: Number,
-            min: -100,
-            default: constants.initialStockB
-        },
-        stockC: {
-            type: Number,
-            min: -100,
-            default: constants.initialStockC
-        }
-    },
+    assetPositions: {},
     isAdmin: {
         type: Boolean,
         default: false
     }
 });
 
-UserSchema.statics.createUser = function (newUser, callback) {
+UserSchema.statics.updateAssets = function(stocks){
+    let finalStocks = {};
+    stocks.forEach(arrayItem => {
+        finalStocks[arrayItem.stockName] = 0
+    });
+
+    return this.updateMany({}, {assetPositions: finalStocks});
+};
+
+UserSchema.statics.createUser = async function (newUser, callback) {
+    let stocks = await Stock.find().exec();
+    let finalStocks = {};
+    stocks.forEach(arrayItem => {
+        finalStocks[arrayItem.stockName] = 0
+    });
+
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(newUser.password, salt, function(err, hash) {
             newUser.password = hash;
+            newUser.assetPositions = finalStocks;
             newUser.save(callback);
         });
     });

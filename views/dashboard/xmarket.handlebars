@@ -12,20 +12,6 @@
             <div class="alert alert-danger">{{error}}</div>
         {{/if}}
 
-        <!--<div class="container horizontal-scroll">-->
-            <!--<div class="row text-center flex-nowrap">-->
-                <!--<div class="col-6 col-sm-5 horizontal-scroll-child">1</div>-->
-                <!--<div class="col-6 col-sm-5 horizontal-scroll-child">2</div>-->
-                <!--<div class="col-6 col-sm-5 horizontal-scroll-child">3</div>-->
-                <!--<div class="col-6 col-sm-5 horizontal-scroll-child">4</div>-->
-                <!--<div class="col-6 col-sm-5 horizontal-scroll-child">5</div>-->
-                <!--<div class="col-6 col-sm-5 horizontal-scroll-child">6</div>-->
-                <!--<div class="col-6 col-sm-5 horizontal-scroll-child">7</div>-->
-                <!--<div class="col-6 col-sm-5 horizontal-scroll-child">8</div>-->
-                <!--<div class="col-6 col-sm-5 horizontal-scroll-child">9</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
         <div class="row text-center flex-nowrap">
             {{#each stockNames}}
                 <div class="col-6 col-sm-5 horizontal-scroll-child">
@@ -42,8 +28,8 @@
 
                         <div class="col-md-3">
                             <div class="form-group text-center">
-                                <label class="assetPosition-label" for="assetPosition">Position</label>
-                                <p id="assetPosition"><b>{{{positionOnAsset}}}</b></p>
+                                <label class="assetPosition-label" for="asset-position">Position</label>
+                                <p class="asset-position"><b>{{lookup ../currentUser.assetPositions stockName}}</b></p>
                             </div>
                         </div>
 
@@ -66,7 +52,7 @@
                                         <th></th>
                                         </thead>
                                         <tbody>
-                                        {{#each UserOffersBuy}}
+                                        {{#myOffers ../UserOffersBuy}}
                                             <tr>
                                                 <td>Buy</td>
                                                 <td>{{{quantity}}}</td>
@@ -77,19 +63,23 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                        {{/each}}
-                                        {{#each UserOffersSell}}
+                                        {{/myOffers}}
+                                        {{#myOffers ../UserOffersSell}}
                                             <tr>
                                                 <td>Sell</td>
-                                                <td>{{{price}}}</td>
                                                 <td>{{{quantity}}}</td>
+                                                <td>{{{price}}}</td>
                                                 <td>
                                                     <a href="#" style="color:red" class="delete-offer sell-offer" data-id="{{{_id}}}">
                                                         <i class="nc-icon nc-simple-remove"></i>
                                                     </a>
                                                 </td>
                                             </tr>
-                                        {{/each}}
+                                        {{/myOffers}}
+
+
+
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -113,7 +103,7 @@
                                                     <label for="buyPrice">Price</label>
                                                     <input type="number" step=".01" class="form-control" min="0" id="buyPrice" placeholder="0" name="price">
                                                 </div>
-                                                <!--<input type="hidden" name="asset" value={{{assetName}}}>-->
+                                                <input type="hidden" name="asset" value={{{stockName}}}>
                                                 <div class="text-center">
                                                     <button type="submit" class="btn btn-outline-dark">Buy</button>
                                                 </div>
@@ -136,7 +126,7 @@
                                                     <label for="sellPrice">Price</label>
                                                     <input type="number" step=".01" class="form-control" min="0" id="sellPrice" placeholder="0" name="price">
                                                 </div>
-                                                <!--<input type="hidden" name="asset" value={{{assetName}}}>-->
+                                                <input type="hidden" name="asset" value={{{stockName}}}>
                                                 <div class="text-center">
                                                     <button type="submit" class="btn btn-outline-dark">Sell</button>
                                                 </div>
@@ -153,7 +143,6 @@
                             <div class="card strpied-tabled-with-hover" id="market-left-card">
                                 <div class="card-header ">
                                     <h4 class="card-title text-center">Buy Offers</h4>
-                                    <p class="card-category text-center">Current buy offers for the selected asset</p>
                                 </div>
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover text-center">
@@ -161,14 +150,14 @@
                                         <th class="custom-market-table text-center">Quantity</th>
                                         <th class="custom-market-table text-center">Price</th>
                                         </thead>
-                                        <tbody class="buy-table">
-                                        {{#each buyOffers}}
+                                        <tbody id="buy-table-{{{stockName}}}">
+                                        {{#assetOffers ../buyOffers}}
                                             <tr>
                                                 <td class="custom-market-table">{{{quantity}}}</td>
                                                 <td class="custom-market-table">{{{price}}}</td>
                                                 <td hidden>{{{_id}}}</td>
                                             </tr>
-                                        {{/each}}
+                                        {{/assetOffers}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -178,7 +167,6 @@
                             <div class="card strpied-tabled-with-hover" id="market-right-card">
                                 <div class="card-header ">
                                     <h4 class="card-title text-center">Sell Offers</h4>
-                                    <p class="card-category text-center">Current sell offers for the selected asset</p>
                                 </div>
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover text-center">
@@ -186,14 +174,14 @@
                                         <th class="custom-market-table text-center">Price</th>
                                         <th class="custom-market-table text-center">Quantity</th>
                                         </thead>
-                                        <tbody class="sell-table">
-                                        {{#each sellOffers}}
+                                        <tbody id="sell-table-{{{stockName}}}">
+                                        {{#assetOffers ../sellOffers}}
                                             <tr>
                                                 <td class="custom-market-table text-center">{{{price}}}</td>
                                                 <td class="custom-market-table text-center">{{{quantity}}}</td>
                                                 <td hidden>{{{_id}}}</td>
                                             </tr>
-                                        {{/each}}
+                                        {{/assetOffers}}
                                         </tbody>
                                     </table>
                                 </div>

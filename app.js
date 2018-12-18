@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
 const session = require('express-session');
@@ -11,6 +10,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const createError = require('http-errors');
 const logger = require('morgan');
 
+const {exphbs} = require('./helpers/handlebars');
 const {ensureAuthenticated} = require('./middlewares/authenticate');
 const {mongoose} = require('./config/mongoose');
 
@@ -30,7 +30,7 @@ const marketRouter = require('./routes/market')(io);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout: 'index'}));
+app.engine('handlebars', exphbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(logger('dev'));

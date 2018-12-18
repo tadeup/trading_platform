@@ -18,7 +18,7 @@ $(document).ready(function () {
         } else if ($(this).hasClass('buy-offer')) {
             url = '/market/delete/buy/' + id;
         }
-        console.log(url);
+
         $.ajax({
             type: 'DELETE',
             url,

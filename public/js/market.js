@@ -1,35 +1,33 @@
 $(function () {
 
-    function instertIntoBuy(p, q) {
+    function instertIntoBuy(p, q, stockName) {
         let markup = `<tr><td class="custom-market-table text-center">${q}</td><td class="custom-market-table text-center">${p}</td></tr>`;
-        let elems = $('.buy-table').children('tr');
+        let tableId = '#buy-table-'+stockName;
+        let elems = $(tableId).children('tr');
         let count = elems.length;
         elems.each(function() {
-            console.log(count);
             if ($(this).children().eq(1).text() < p) {
                 $(this).before(markup);
                 return false;
             }
             count--;
         });
-        console.log(count);
-        if (!count) $('.buy-table').append(markup);
+        if (!count) $(tableId).append(markup);
     }
 
-    function instertIntoSell(p, q) {
+    function instertIntoSell(p, q, stockName) {
         let markup = `<tr><td class="custom-market-table text-center">${p}</td><td class="custom-market-table text-center">${q}</td></tr>`;
-        let elems = $('.sell-table').children('tr');
+        let tableId = '#sell-table-'+stockName;
+        let elems = $(tableId).children('tr');
         let count = elems.length;
         elems.each(function() {
-            console.log(count);
             if ($(this).children().eq(1).text() > p) {
                 $(this).before(markup);
                 return false;
             }
             count--;
         });
-        console.log(count);
-        if (!count) $('.sell-table').append(markup);
+        if (!count) $(tableId).append(markup);
     }
     var socket = io('/dashboard');
 
@@ -40,13 +38,13 @@ $(function () {
     // });
 
     socket.on('newOffer', function(msg){
+        var {asset} = msg;
         var q = msg.quantity;
         var p = msg.price;
-        msg.isBuy
-            ? instertIntoBuy(p, q)
-            : instertIntoSell(p, q);
 
-        // $('#buy-table').append(markup);
-        console.log(p, q);
+        msg.isBuy
+            ? instertIntoBuy(p, q, asset)
+            : instertIntoSell(p, q, asset);
+
     });
 });

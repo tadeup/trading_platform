@@ -1,4 +1,5 @@
 const {Stock} = require('../../models/Stocks');
+const {User} = require('../../models/Users');
 
 const helpers = require('../../helpers/market');
 
@@ -40,7 +41,6 @@ async function deleteStockController(req, res, next) {
             stockId
         }
     } = req;
-    console.log(req.body);
     Stock.findByIdAndDelete(stockId)
         .then((stock) => {
             if (stock){
@@ -55,4 +55,17 @@ async function deleteStockController(req, res, next) {
         });
 }
 
-module.exports = {getStockController, postStockController, deleteStockController};
+async function updateStocksController(req, res, next) {
+    Stock.find()
+    .then(stocks => {
+        return User.updateAssets(stocks)
+    }).then(a =>{
+        res.status(200).send("stocks updated!");
+    }).catch(e => {
+        console.log(e);
+        res.status(400).send("Ops! Something went wrong! Please contact admin.");
+    });
+
+}
+
+module.exports = {getStockController, postStockController, deleteStockController, updateStocksController};

@@ -3,7 +3,12 @@ var router = express.Router();
 
 const {pricesController} = require('../controllers/admin/prices');
 const {studentsController} = require('../controllers/admin/students');
-const {getStockController, postStockController, deleteStockController} = require('../controllers/admin/stocks');
+const {
+    getStockController,
+    postStockController,
+    deleteStockController,
+    updateStocksController
+} = require('../controllers/admin/stocks');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,5 +24,7 @@ router.get('/stocks', getStockController);
 router.post('/stocks', postStockController);
 
 router.delete('/stocks', deleteStockController);
+
+router.post('/updatestocks', updateStocksController);
 
 module.exports = router;

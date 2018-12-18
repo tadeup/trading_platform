@@ -14,6 +14,8 @@ module.exports = function (io) {
             }
         } = req;
 
+        quantity = Number(quantity);
+
         let currentUser = req.user;
         let errors = helpers.checkFullBody(req, 'buy');
 
@@ -27,7 +29,7 @@ module.exports = function (io) {
             return;
         }
 
-        let setObject = helpers.setAssetPosition(asset, currentUser, quantity);
+        let setObject = helpers.setAssetPosition(asset, currentUser, Number(quantity));
 
         User.findByIdAndUpdate(req.user, {$inc: setObject})
             .then((user) => {

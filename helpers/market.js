@@ -20,13 +20,13 @@ module.exports = {
     },
     hasMargin: function (asset ,p, q, currentUser, margin, type) {
         let sum = 0;
-        let e = currentUser.assetPositions.toJSON();
+        let e = currentUser.assetPositions;
         for( let el in e ) {
             if( currentUser.assetPositions.hasOwnProperty( el ) ) {
                 sum += parseFloat( currentUser.assetPositions [el] );
             }
         }
-        console.log(sum, margin, currentUser.money);
+
         if (type === "buy"){
             return (q < -currentUser.assetPositions[asset]) ?
                 true :

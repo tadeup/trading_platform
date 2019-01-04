@@ -26,6 +26,10 @@ div table thead .custom-market-table {
     text-align: center!important;
 }
 
+div table thead .center-this {
+    text-align: center!important;
+}
+
 .custom-market-table {
     border-top: none!important;
 }

@@ -46,6 +46,7 @@ module.exports = function (io) {
                 quantity,
                 originalQuantity: quantity,
                 price,
+                pxqHistory:0,
                 'dateCreated':new Date().getTime(),
                 ownerId: currentUser._id,
                 isBuy: false
@@ -61,7 +62,13 @@ module.exports = function (io) {
                         const p1 = User.findByIdAndUpdate(docs[j].ownerId, {$inc: {money: -pxq}}).exec();
                         const p2 = User.findByIdAndUpdate(currentUser._id, {$inc: {money: pxq}}).exec();
                         newOffer.quantity -= docs[j].quantity;
-                        const p3 = Offer.findByIdAndUpdate(docs[j]._id, {quantity: 0, dateCompleted: currDate}).exec();
+                        newOffer.pxqHistory += pxq;
+                        const p3 = Offer.findByIdAndUpdate(docs[j]._id, {
+                            quantity: 0,
+                            dateCompleted: currDate,
+                            $inc: {pxqHistory: pxq},
+                            wasModified: true
+                        }).exec();
                         io.of('/dashboard').emit('offerCompleted', docs[j]._id);
                         await Promise.all([p1, p2, p3]);
                         j++;
@@ -72,13 +79,23 @@ module.exports = function (io) {
                         const p1 = User.findByIdAndUpdate(docs[j].ownerId, {$inc: {money: -pxq}}).exec();
                         const p2 = User.findByIdAndUpdate(currentUser._id, {$inc: {money: pxq}}).exec();
                         if(newOffer.quantity === docs[j].quantity){
-                            p3 = Offer.findByIdAndUpdate(docs[j]._id, {quantity: 0, dateCompleted: currDate}).exec();
+                            p3 = Offer.findByIdAndUpdate(docs[j]._id, {
+                                quantity: 0,
+                                dateCompleted: currDate,
+                                $inc: {pxqHistory: pxq},
+                                wasModified: true
+                            }).exec();
                             io.of('/dashboard').emit('offerCompleted', docs[j]._id);
                         } else {
-                            p3 = Offer.findByIdAndUpdate(docs[j]._id, {quantity: newQuantityX}).exec();
+                            p3 = Offer.findByIdAndUpdate(docs[j]._id, {
+                                quantity: newQuantityX,
+                                $inc: {pxqHistory: pxq},
+                                wasModified: true
+                            }).exec();
                             io.of('/dashboard').emit('offerMatched', docs[j]._id, newQuantityX);
                         }
                         newOffer.quantity = 0;
+                        newOffer.pxqHistory += pxq;
                         newOffer.dateCompleted = currDate;
                         await Promise.all([p1, p2, p3]);
                     }

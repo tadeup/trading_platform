@@ -14,6 +14,9 @@ const OfferSchema = mongoose.Schema({
     quantity: {
         type: Number
     },
+    pxqHistory: {
+        type: Number
+    },
     originalQuantity: {
         type: Number
     },
@@ -26,9 +29,21 @@ const OfferSchema = mongoose.Schema({
     isBuy: {
         type: Boolean
     },
-    wasDeleted: {
-        type: Boolean
+    wasModified: {
+        type: Boolean,
+        default: false
     },
+    wasDeleted: {
+        type: Boolean,
+        default: false
+    },
+});
+
+OfferSchema.pre('save', function(next) {
+    if (this.originalQuantity !== this.quantity) {
+        this.wasModified = true;
+    }
+    next();
 });
 
 OfferSchema.statics.createOffer = function(callback){

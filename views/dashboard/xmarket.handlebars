@@ -36,6 +36,42 @@
                         <div class="col-md-3"></div>
 
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card strpied-tabled-with-hover">
+                                <div class="card-header ">
+                                    <h4 class="card-title">Closed Orders</h4>
+                                </div>
+                                <div class="card-body table-full-width table-responsive">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                        <th class="center-this">B/S</th>
+                                        <th class="center-this">Total Amount</th>
+                                        <th class="center-this">AVG Price</th>
+                                        </thead>
+                                        <tbody>
+                                        {{#myClosedOffers ../closedBuyOffers}}
+                                            <tr>
+                                                <td>Buy</td>
+                                                <td class="quantity">{{{retQ}}}</td>
+                                                <td>{{{retP}}}</td>
+                                            </tr>
+                                        {{/myClosedOffers}}
+                                        {{#myClosedOffers ../closedSellOffers}}
+                                            <tr>
+                                                <td>Sell</td>
+                                                <td class="quantity">{{{retQ}}}</td>
+                                                <td>{{{retP}}}</td>
+                                            </tr>
+                                        {{/myClosedOffers}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card strpied-tabled-with-hover">
@@ -46,10 +82,10 @@
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover table-striped">
                                         <thead>
-                                        <th>B/S</th>
-                                        <th>Amount</th>
-                                        <th>Price</th>
-                                        <th></th>
+                                        <th class="center-this">B/S</th>
+                                        <th class="center-this">Amount</th>
+                                        <th class="center-this">Price</th>
+                                        <th class="center-this"></th>
                                         </thead>
                                         <tbody>
                                         {{#myOffers ../UserOffersBuy}}
@@ -76,10 +112,6 @@
                                                 </td>
                                             </tr>
                                         {{/myOffers}}
-
-
-
-
                                         </tbody>
                                     </table>
                                 </div>

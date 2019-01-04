@@ -20,7 +20,7 @@ module.exports = function (io) {
         Offer.findById(offerId)
             .then((offer) => {
                 if (req.user && `${offer.ownerId}` === `${req.user._id}`) {
-                    return Offer.findByIdAndUpdate(offerId, {quantity: 0, wasDeleted: true})
+                    return Offer.findByIdAndUpdate(offerId, {wasDeleted: true, wasModified: true})
                 } else {
                     throw 403;
                 }

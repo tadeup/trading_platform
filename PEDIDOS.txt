@@ -1,0 +1,9 @@
+aumentar tamnho da fonte	=========================================================================|
+centralizar o titulo	=================================================================================| ok
+posiação aberto e fechado	=========================================================================| ok
+mostrar ordes fechadas	=================================================================================| ok
+closed oreders > novo quadradinho no mercado	=========================================================| ok
+>>quantidade total fechada e media ponderada de buy e sell > duas linhas	=========================| ok
+produto de trade continuo	=========================================================================|
+poder colcoar no final a aula o valor real do ativo > calcular o quanto q cada um ganhou ou perdeu	=|
+margem -> pra cada ativo um numero fixo, fechado mais aberto menor que o numero	=========================|

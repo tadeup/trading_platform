@@ -37,7 +37,6 @@ $(function () {
 
     function updateOffer(stockId, newQuantity) {
         $('[data-id="' + stockId + '"]').parent().parent().find('.quantity').text(newQuantity);
-        console.log($('[data-id="' + stockId + '"]').parent().parent().find('.quantity'));
         $('td:contains('+stockId+')').siblings('.quantity').text(newQuantity);
     }
 

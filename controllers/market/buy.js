@@ -41,6 +41,7 @@ module.exports = function (io) {
                     .find({price: {$lte: price}, asset: asset})
                     .where({isBuy: false})
                     .where({quantity: {$gt: 0}})
+                    .where({wasDeleted: false})
                     .sort({price:'ascending'})
             }).then(async (docs) => {
             let newOffer = new Offer({

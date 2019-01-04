@@ -20,10 +20,6 @@ var exphbs = handlebars.create({
             var retQ = 0;
             var retP = 0;
 
-            // console.log(context[0]);
-            // console.log('-------------------------');
-            // console.log(options.fn(context[0]));
-            // console.log('=========================');
             for(var i=0, j=context.length; i<j; i++) {
                 if (context[i].asset === this.stockName){
                     retQ += context[i].originalQuantity - context[i].quantity;

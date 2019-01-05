@@ -14,6 +14,7 @@ router.get('/', function(req, res, next) {
 router.get('/profile', function(req, res, next) {
     res.render('dashboard/profile', {
         layout: 'dashboard',
+        currentUser: req.user,
         active: {
             'profile': true
         }});
@@ -24,6 +25,7 @@ router.get('/xmarket', xmarketController);
 router.get('/info', function(req, res, next) {
     res.render('dashboard/info', {
         layout: 'dashboard',
+        currentUser: req.user,
         active: {
             'info': true
         }});

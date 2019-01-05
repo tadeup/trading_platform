@@ -11,7 +11,7 @@ const createError = require('http-errors');
 const logger = require('morgan');
 
 const {exphbs} = require('./helpers/handlebars');
-const {ensureAuthenticated} = require('./middlewares/authenticate');
+const {ensureAuthenticated, ensureAdmin} = require('./middlewares/authenticate');
 const {mongoose} = require('./config/mongoose');
 
 // Init express app
@@ -66,7 +66,7 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/admin', adminRouter);
+app.use('/admin', ensureAdmin, adminRouter);
 app.use('/dashboard', ensureAuthenticated, dashboardRouter);
 app.use('/market', marketRouter);
 

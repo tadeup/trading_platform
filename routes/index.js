@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
     if (!req.isAuthenticated()) {
-        res.render('index', { title: 'Trading System' });
+        return res.redirect('/users/login');
     } else {
         return res.redirect('/dashboard');
     }

@@ -1,15 +1,32 @@
 <div class="content">
     <div class="container-fluid">
-        <div class="card col-md-3">
-            <form method="post" action="/admin/stocks">
-                <div class="form-group text-center">
-                    <label for="stockName">stock Name</label>
-                    <input id="stockName" type="text" name="stockName">
-                </div>
-                <div class="form-group text-center">
+        <div class="row">
+            <div class="card col-md-3">
+                <form method="post" action="/admin/stocks">
+                    <div class="form-group text-center">
+                        <label for="stockName">stock Name</label>
+                        <input id="stockName" type="text" name="stockName">
+                    </div>
+                    <div class="form-group text-center">
+                        <label for="continuo">continuo?</label><br>
+                        <input id="continuo" type="radio" name="continuo" value="0" checked> n <br>
+                        <input type="radio" name="continuo" value="1"> y
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-outline-dark">post</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card col-md-9 text-center">
+                <p>update user assets. Run this everytime you change the available assets</p>
+                <form method="post" action="/admin/updatestocks">
+                    <label for="hard">reset continuous traded assets as well?</label><br>
+                    <input id="hard" type="radio" name="hard" value="0" checked> n <br>
+                    <input type="radio" name="hard" value="1"> y <br>
                     <button type="submit" class="btn btn-outline-dark">post</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
 
         <div class="row">
@@ -23,6 +40,7 @@
                             <thead>
                             <th>stock name</th>
                             <th>stock id</th>
+                            <th>trade continuo</th>
                             <th>delete</th>
                             </thead>
                             <tbody>
@@ -30,6 +48,7 @@
                                 <tr>
                                     <td>{{{stockName}}}</td>
                                     <td>{{{_id}}}</td>
+                                    <td>{{{continuo}}}</td>
                                     <td>
                                         <button data-id="{{{_id}}}" type="submit" class="btn btn-outline-dark delete-stock">x</button>
                                     </td>
@@ -41,11 +60,6 @@
                 </div>
             </div>
         </div>
-
-        <p>update user assets. Run this everytime you change the available assets</p>
-        <form method="post" action="/admin/updatestocks">
-            <button type="submit" class="btn btn-outline-dark">post</button>
-        </form>
         
     </div>
 </div>

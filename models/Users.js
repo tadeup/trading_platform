@@ -35,6 +35,16 @@ const UserSchema = mongoose.Schema({
 
 UserSchema.statics.updateAssets = function(stocks){
     let finalStocks = {};
+    console.log(this);
+    stocks.forEach(arrayItem => {
+        finalStocks[arrayItem.stockName] = 0
+    });
+
+    return this.updateMany({}, {assetPositions: finalStocks});
+};
+
+UserSchema.statics.hardUpdateAssets = function(stocks){
+    let finalStocks = {};
     stocks.forEach(arrayItem => {
         finalStocks[arrayItem.stockName] = 0
     });

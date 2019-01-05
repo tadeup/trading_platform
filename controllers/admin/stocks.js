@@ -19,11 +19,12 @@ async function getStockController(req, res, next) {
 async function postStockController(req, res, next) {
     let {
         body: {
-            stockName
+            stockName,
+            continuo
         }
     } = req;
 
-    let newStock = new Stock({stockName});
+    let newStock = new Stock({stockName, continuo});
 
     newStock.save(newStock)
         .then((offer) => {
@@ -56,15 +57,47 @@ async function deleteStockController(req, res, next) {
 }
 
 async function updateStocksController(req, res, next) {
-    Stock.find()
-    .then(stocks => {
-        return User.updateAssets(stocks)
-    }).then(a =>{
-        res.status(200).send("stocks updated!");
-    }).catch(e => {
-        console.log(e);
-        res.status(400).send("Ops! Something went wrong! Please contact admin.");
-    });
+    let {
+        body: {
+            hard
+        }
+    } = req;
+
+    if (hard == true) {
+        Stock.find()
+            .then(stocks => {
+                return User.hardUpdateAssets(stocks)
+            }).then(a =>{
+            res.status(200).send("stocks updated!");
+        }).catch(e => {
+            console.log(e);
+            res.status(400).send("Ops! Something went wrong! Please contact admin.");
+        });
+    } else {
+        let users, stocks;
+        [users, stocks] = await Promise.all([User.find().exec(), Stock.find().exec()]);
+        let updates = [];
+        users.forEach(user => {
+            let finalStocks = {};
+            stocks.forEach(arrayItem => {
+                if (arrayItem.continuo) {
+                    finalStocks[arrayItem.stockName] = user.assetPositions[arrayItem.stockName]
+                } else {
+                    finalStocks[arrayItem.stockName] = 0
+                }
+            });
+            let userUpdatePromise = User.findByIdAndUpdate(user._id, {assetPositions: finalStocks});
+            updates.push(userUpdatePromise);
+        });
+        Promise.all(updates)
+            .then(() => {
+                res.status(200).send("stocks updated!");
+            }).catch((e) => {
+                console.log(e);
+                res.status(400).send("Ops! Something went wrong! Please contact admin.");
+            });
+    }
+
 
 }
 

@@ -4,6 +4,9 @@ const StocksSchema = mongoose.Schema({
     stockName: {
         type: String
     },
+    continuo: {
+        type: Boolean
+    }
 });
 
 StocksSchema.statics.getStockNames = function () {

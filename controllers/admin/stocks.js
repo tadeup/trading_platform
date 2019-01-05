@@ -20,11 +20,14 @@ async function postStockController(req, res, next) {
     let {
         body: {
             stockName,
-            continuo
+            continuo,
+            margin
         }
     } = req;
 
-    let newStock = new Stock({stockName, continuo});
+    if (!margin || margin < 1) margin = 1;
+
+    let newStock = new Stock({stockName, continuo, margin});
 
     newStock.save(newStock)
         .then((offer) => {

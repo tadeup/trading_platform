@@ -1,6 +1,7 @@
 module.exports = function (io) {
     const {User} = require('../../models/Users');
     const {Offer} = require('../../models/Offers');
+    const {Stock} = require('../../models/Stocks');
     const {constants} = require('../../config/constants');
 
     const helpers = require('../../helpers/market');
@@ -22,7 +23,20 @@ module.exports = function (io) {
             return;
         }
 
-        if (!helpers.hasMargin(asset, price, quantity, currentUser, constants.margin, "sell")){
+        let closedOffers, stock;
+        [closedOffers, stock] = await Promise.all([
+            Offer.find()
+                .where({wasModified: true})
+                .where({asset: asset})
+                .where({ownerId: {$eq: req.user._id}})
+                .exec(),
+
+            Stock.findOne()
+                .where({stockName: asset})
+                .exec()
+        ]);
+
+        if (!helpers.hasMargin(asset, price, quantity, currentUser, stock.margin, "sell", closedOffers)){
             helpers.redirectBack("You don't have enough margin!", false, req, res);
             return;
         }

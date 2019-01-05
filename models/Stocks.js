@@ -6,6 +6,9 @@ const StocksSchema = mongoose.Schema({
     },
     continuo: {
         type: Boolean
+    },
+    margin: {
+        type: Number
     }
 });
 

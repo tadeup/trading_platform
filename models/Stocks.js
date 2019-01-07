@@ -9,6 +9,9 @@ const StocksSchema = mongoose.Schema({
     },
     margin: {
         type: Number
+    },
+    finalValue: {
+        type: Number
     }
 });
 

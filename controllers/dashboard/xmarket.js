@@ -36,7 +36,6 @@ async function xmarketController(req, res, next) {
         .filter(offer => `${offer.ownerId}` === `${req.user._id}`);
 
 
-
     var contextObj = {
         layout: 'dashboard',
         stockNames,

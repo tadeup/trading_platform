@@ -104,4 +104,22 @@ async function updateStocksController(req, res, next) {
 
 }
 
-module.exports = {getStockController, postStockController, deleteStockController, updateStocksController};
+async function finalPriceController(req, res, next) {
+    let {
+        body: {
+            finalprice,
+            id
+        }
+    } = req;
+
+    if (finalprice){
+        Stock.findByIdAndUpdate(id, {finalValue:finalprice}).then((stock) => {
+            helpers.redirectBack('Done!', true, req, res);
+        }).catch(e => {
+            console.log(e);
+            res.status(400).send("Ops! Something went wrong! Please contact admin.");
+        })
+    }
+}
+
+module.exports = {getStockController, postStockController, deleteStockController, updateStocksController, finalPriceController};

@@ -1,5 +1,16 @@
 <div class="content">
     <div class="container-fluid">
+        {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+        {{/if}}
+
+        {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+        {{/if}}
+
+        {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+        {{/if}}
         <div class="row">
             <div class="card col-md-3">
                 <form method="post" action="/admin/stocks">
@@ -44,6 +55,7 @@
                             <thead>
                             <th>stock name</th>
                             <th>stock id</th>
+                            <th>final price</th>
                             <th>trade continuo</th>
                             <th>margin</th>
                             <th>delete</th>
@@ -53,6 +65,17 @@
                                 <tr>
                                     <td>{{{stockName}}}</td>
                                     <td>{{{_id}}}</td>
+                                    <td>
+                                        {{#if finalValue}}
+                                            <p>{{{finalValue}}}</p>
+                                        {{else}}
+                                            <form method="post" action="/admin/finalprice">
+                                                <input type="number" name="finalprice" value="0" step=".01" placeholder="0">
+                                                <input type="hidden" name="id" value={{{_id}}}>
+                                                <button type="submit" class="btn btn-outline-dark">ok</button>
+                                            </form>
+                                        {{/if}}
+                                    </td>
                                     <td>{{{continuo}}}</td>
                                     <td>{{{margin}}}</td>
                                     <td>

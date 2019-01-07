@@ -1,24 +1,33 @@
 const moment = require('moment');
 
 const {Offer} = require('../../models/Offers');
+const {Stock} = require('../../models/Stocks');
 
 async function pricesController(req, res, next) {
-    const {
-        body: {
-            asset,
-            timeInSeconds
-        }
-    } = req;
+    const {asset} = req.query;
+    const stocks = await Stock.find().exec();
+    let allTimes;
+    let timesAndPrices;
+    if (asset) {
+        allTimes = await Offer.find({asset}).sort({dateCompleted: 'asc'}).exec();
+        console.log(allTimes);
+        timesAndPrices = allTimes.map(a => {
+            return a.dateCompleted
+                ? {
+                    time : moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss'),
+                    price : a.price
+                }
+                : {
+                    time : "UNCOMPLETE",
+                    price : a.price
+                }
+        });
+    }
 
-    let allTimes = await Offer.find({dateCompleted: {$exists: true}}).sort({dateCompleted: 'asc'}).exec();
-    let timesAndPrices = allTimes.map(a => {
-        return {
-            time : moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss'),
-            price : a.price
-        }
-    });
+
 
     let contextObj = {
+        stocks,
         layout: 'admin',
         timesAndPrices,
         active: {

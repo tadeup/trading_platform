@@ -15,6 +15,31 @@
         <div class="row text-center flex-nowrap">
             {{#each stockNames}}
                 <div class="col-6 col-sm-5 horizontal-scroll-child">
+                {{#if finalValue}}
+                    <div class="row">
+
+                        <div class="col-md-3"></div>
+
+                        <div class="col-md-3">
+                            <div class="form-group text-center">
+                                <label class="asset-label" for="assetName">Asset</label>
+                                <p>{{{stockName}}}</p>
+                            </div>
+                        </div>
+
+                        {{#myEndedOffers ../closedBuyOffers ../closedSellOffers finalValue}}
+                            <div class="col-md-3">
+                                <div class="form-group text-center">
+                                    <label class="assetPosition-label" for="asset-position">Earnings</label>
+                                    <p class="asset-position"><b>{{{earning}}}</b></p>
+                                </div>
+                            </div>
+                        {{/myEndedOffers}}
+
+                        <div class="col-md-3"></div>
+
+                    </div>
+                {{else}}
                     <div class="row">
 
                         <div class="col-md-3"></div>
@@ -121,50 +146,50 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-md-6">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Buy</h4>
+                                <div class="card-header">
+                                    <h4 class="card-title">Buy</h4>
+                                </div>
+                                <div class="card-body ">
+                                    <div>
+                                        <form method="post" action="/market/buy" class="market-form">
+                                            <div class="form-group">
+                                                <label for="buyQuantity">Quantity</label>
+                                                <input type="number" class="form-control" min="0" id="buyQuantity" placeholder="0" name="quantity">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="buyPrice">Price</label>
+                                                <input type="number" step=".01" class="form-control" min="0" id="buyPrice" placeholder="0" name="price">
+                                            </div>
+                                            <input type="hidden" name="asset" value={{{stockName}}}>
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-outline-dark">Buy</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="card-body ">
-                                        <div>
-                                            <form method="post" action="/market/buy" class="market-form">
-                                                <div class="form-group">
-                                                    <label for="buyQuantity">Quantity</label>
-                                                    <input type="number" class="form-control" min="0" id="buyQuantity" placeholder="0" name="quantity">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="buyPrice">Price</label>
-                                                    <input type="number" step=".01" class="form-control" min="0" id="buyPrice" placeholder="0" name="price">
-                                                </div>
-                                                <input type="hidden" name="asset" value={{{stockName}}}>
-                                                <div class="text-center">
-                                                    <button type="submit" class="btn btn-outline-dark">Buy</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Sell</h4>
+                                <div class="card-header">
+                                    <h4 class="card-title">Sell</h4>
+                                </div>
+                                <div class="card-body ">
+                                    <div>
+                                        <form method="post" action="/market/sell">
+                                            <div class="form-group">
+                                                <label for="sellQuantity">Quantity</label>
+                                                <input type="number"  class="form-control" min="0" id="sellQuantity" placeholder="0" name="quantity">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sellPrice">Price</label>
+                                                <input type="number" step=".01" class="form-control" min="0" id="sellPrice" placeholder="0" name="price">
+                                            </div>
+                                            <input type="hidden" name="asset" value={{{stockName}}}>
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-outline-dark">Sell</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="card-body ">
-                                        <div>
-                                            <form method="post" action="/market/sell">
-                                                <div class="form-group">
-                                                    <label for="sellQuantity">Quantity</label>
-                                                    <input type="number"  class="form-control" min="0" id="sellQuantity" placeholder="0" name="quantity">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="sellPrice">Price</label>
-                                                    <input type="number" step=".01" class="form-control" min="0" id="sellPrice" placeholder="0" name="price">
-                                                </div>
-                                                <input type="hidden" name="asset" value={{{stockName}}}>
-                                                <div class="text-center">
-                                                    <button type="submit" class="btn btn-outline-dark">Sell</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -179,8 +204,8 @@
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover text-center">
                                         <thead>
-                                            <th class="custom-market-table text-center">Quantity</th>
-                                            <th class="custom-market-table text-center">Price</th>
+                                        <th class="custom-market-table text-center">Quantity</th>
+                                        <th class="custom-market-table text-center">Price</th>
                                         </thead>
                                         <tbody id="buy-table-{{{stockName}}}">
                                         {{#assetOffers ../buyOffers}}
@@ -203,8 +228,8 @@
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover text-center">
                                         <thead>
-                                            <th class="custom-market-table text-center">Price</th>
-                                            <th class="custom-market-table text-center">Quantity</th>
+                                        <th class="custom-market-table text-center">Price</th>
+                                        <th class="custom-market-table text-center">Quantity</th>
                                         </thead>
                                         <tbody id="sell-table-{{{stockName}}}">
                                         {{#assetOffers ../sellOffers}}
@@ -220,6 +245,7 @@
                             </div>
                         </div>
                     </div>
+                {{/if}}
                 </div>
             {{/each}}
         </div>

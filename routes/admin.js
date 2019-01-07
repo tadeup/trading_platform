@@ -7,7 +7,8 @@ const {
     getStockController,
     postStockController,
     deleteStockController,
-    updateStocksController
+    updateStocksController,
+    finalPriceController
 } = require('../controllers/admin/stocks');
 
 /* GET home page. */
@@ -26,5 +27,7 @@ router.post('/stocks', postStockController);
 router.delete('/stocks', deleteStockController);
 
 router.post('/updatestocks', updateStocksController);
+
+router.post('/finalprice', finalPriceController);
 
 module.exports = router;

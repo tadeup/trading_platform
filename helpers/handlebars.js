@@ -34,6 +34,25 @@ var exphbs = handlebars.create({
             return options.fn({retQ, retP});
         },
 
+        myEndedOffers: function(buys, sells, finalValue, options) {
+            var retQ = 0;
+
+            for(let i=0, j=buys.length; i<j; i++) {
+                if (buys[i].asset === this.stockName){
+                    retQ += buys[i].originalQuantity - buys[i].quantity;
+                }
+            }
+            for(let i=0, j=sells.length; i<j; i++) {
+                if (sells[i].asset === this.stockName){
+                    retQ -= sells[i].originalQuantity - sells[i].quantity;
+                }
+            }
+
+            let earning = retQ * finalValue;
+
+            return options.fn({earning});
+        },
+
         assetOffers: function(context, options) {
             var ret = "";
 

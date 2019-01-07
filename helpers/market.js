@@ -53,14 +53,13 @@ module.exports = {
             }
         }
 
-        console.log(fechado + " " + aberto + " " + q + " " + margin);
         if (type === "buy"){
 
-            return fechado + aberto + q < margin
+            return fechado + aberto + q <= margin
 
         } else if (type === "sell") {
 
-            return fechado + aberto - q > - margin
+            return fechado + aberto - q >= - margin
 
         } else {
             throw "type argument must equal 'buy' or 'sell'"

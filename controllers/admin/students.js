@@ -4,7 +4,7 @@ const {User} = require('../../models/Users');
 const {Offer} = require('../../models/Offers');
 
 async function studentsController(req, res, next) {
-    const students = await User.find({isAdmin: false}).exec();
+    const students = await User.find({}).exec();
 
     if(req.query.student){
         const {student} = req.query;

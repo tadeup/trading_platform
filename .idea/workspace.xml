@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db61109-f84c-401d-a8d7-0848b1b3ccb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PEDIDOS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PEDIDOS.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/prices.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/prices.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/stocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/stocks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/dashboard/xmarket.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/dashboard/xmarket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/handlebars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/market.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/market.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Stocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Stocks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/prices.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/prices.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/stocks.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/stocks.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/students.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/students.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/dashboard/profile.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/dashboard/profile.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/dashboard/xmarket.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/dashboard/xmarket.handlebars" afterDir="false" />
-    </list>
+    <list default="true" id="9db61109-f84c-401d-a8d7-0848b1b3ccb9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -442,12 +427,12 @@
       <workItem from="1546703454375" duration="15919000" />
       <workItem from="1546802438141" duration="6529000" />
       <workItem from="1546809844206" duration="4397000" />
-      <workItem from="1546878944845" duration="2629000" />
+      <workItem from="1546878944845" duration="3130000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298391000" />
+    <option name="totallyTimeSpent" value="298892000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

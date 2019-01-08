@@ -35,20 +35,39 @@ var exphbs = handlebars.create({
         },
 
         myEndedOffers: function(buys, sells, finalValue, options) {
-            var retQ = 0;
+            var qBuy = 0;
+            var pBuy = 0;
+
+            var qSell = 0;
+            var pSell = 0;
 
             for(let i=0, j=buys.length; i<j; i++) {
                 if (buys[i].asset === this.stockName){
-                    retQ += buys[i].originalQuantity - buys[i].quantity;
-                }
-            }
-            for(let i=0, j=sells.length; i<j; i++) {
-                if (sells[i].asset === this.stockName){
-                    retQ -= sells[i].originalQuantity - sells[i].quantity;
+                    qBuy += buys[i].originalQuantity - buys[i].quantity;
+                    pBuy += buys[i].pxqHistory;
                 }
             }
 
-            let earning = retQ * finalValue;
+            if (qBuy > 0) {
+                pBuy = (pBuy/qBuy);
+            }
+
+            for(let i=0, j=sells.length; i<j; i++) {
+                if (sells[i].asset === this.stockName){
+                    qSell += sells[i].originalQuantity - sells[i].quantity;
+                    pSell += sells[i].pxqHistory;
+                }
+            }
+
+            if (qSell > 0) {
+                pSell = (pSell/qSell);
+            }
+
+            let earning = (finalValue - pBuy) * qBuy + (pSell - finalValue) * qSell;
+            
+            if (earning){
+                earning = earning.toFixed(2);
+            }
 
             return options.fn({earning});
         },

@@ -26,7 +26,6 @@ module.exports = function (io) {
         let closedOffers, stock;
         [closedOffers, stock] = await Promise.all([
             Offer.find()
-                .where({wasModified: true})
                 .where({asset: asset})
                 .where({ownerId: {$eq: req.user._id}})
                 .exec(),

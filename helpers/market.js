@@ -41,15 +41,39 @@ module.exports = {
     //     }
     // },
     hasMargin: function (asset ,p, q, currentUser, margin, type, closedOffers) {
-        let aberto = currentUser.assetPositions[asset];
+        let fechado = 0;
 
         if (type === "buy"){
 
-            return aberto + q <= margin
+            for(let i=0, j=closedOffers.length; i<j; i++) {
+                if (closedOffers[i].asset === asset && closedOffers[i].isBuy && closedOffers[i].wasDeleted){
+                    fechado += closedOffers[i].originalQuantity - closedOffers[i].quantity;
+                }
+                else if (closedOffers[i].asset === asset && closedOffers[i].isBuy && !closedOffers[i].wasDeleted){
+                    fechado += closedOffers[i].originalQuantity;
+                }
+                else if (closedOffers[i].asset === asset && !closedOffers[i].isBuy){
+                    fechado -= closedOffers[i].originalQuantity - closedOffers[i].quantity;
+                }
+            }
+
+            return fechado + q <= margin
 
         } else if (type === "sell") {
 
-            return aberto - q >= - margin
+            for(let i=0, j=closedOffers.length; i<j; i++) {
+                if (closedOffers[i].asset === asset && closedOffers[i].isBuy){
+                    fechado += closedOffers[i].originalQuantity - closedOffers[i].quantity;
+                }
+                else if (closedOffers[i].asset === asset && !closedOffers[i].isBuy && closedOffers[i].wasDeleted){
+                    fechado -= closedOffers[i].originalQuantity - closedOffers[i].quantity;
+                }
+                else if (closedOffers[i].asset === asset && !closedOffers[i].isBuy && !closedOffers[i].wasDeleted){
+                    fechado -= closedOffers[i].originalQuantity;
+                }
+            }
+
+            return fechado - q >= - margin
 
         } else {
             throw "type argument must equal 'buy' or 'sell'"

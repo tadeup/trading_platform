@@ -73,7 +73,7 @@ module.exports = function (io) {
                 let currDate = new Date().getTime();
                 while (newOffer.quantity > 0 && j < docs.length) {
                     if (newOffer.quantity > docs[j].quantity){
-                        pxq = docs[j].quantity * newOffer.price;
+                        pxq = docs[j].quantity * docs[j].price;
                         const p1 = User.findByIdAndUpdate(docs[j].ownerId, {$inc: {money: -pxq}}).exec();
                         const p2 = User.findByIdAndUpdate(currentUser._id, {$inc: {money: pxq}}).exec();
                         newOffer.quantity -= docs[j].quantity;
@@ -90,7 +90,7 @@ module.exports = function (io) {
                     } else {
                         let p3;
                         let newQuantityX = docs[j].quantity - newOffer.quantity;
-                        pxq = newOffer.quantity * newOffer.price;
+                        pxq = newOffer.quantity * docs[j].price;
                         const p1 = User.findByIdAndUpdate(docs[j].ownerId, {$inc: {money: -pxq}}).exec();
                         const p2 = User.findByIdAndUpdate(currentUser._id, {$inc: {money: pxq}}).exec();
                         if(newOffer.quantity === docs[j].quantity){

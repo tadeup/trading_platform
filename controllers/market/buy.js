@@ -21,7 +21,7 @@ module.exports = function (io) {
         let errors = helpers.checkFullBody(req, 'buy');
 
         if (errors || !currentUser){
-            helpers.redirectBack('Please provide valid data', false, req, res);
+            helpers.redirectBack('Please provide valid data ( price and quantity must be between 1 and 999 )', false, req, res);
             return;
         }
 
@@ -37,7 +37,6 @@ module.exports = function (io) {
                 .where({stockName: asset})
                 .exec()
         ]);
-
 
         if (!helpers.hasMargin(asset, price, quantity, currentUser, stock.margin, "buy", closedOffers)){
             helpers.redirectBack("You don't have enough margin!", false, req, res);

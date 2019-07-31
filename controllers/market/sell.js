@@ -19,7 +19,7 @@ module.exports = function (io) {
         let errors = helpers.checkFullBody(req, 'sell');
 
         if (errors || !currentUser){
-            helpers.redirectBack('Please provide valid data', false, req, res);
+            helpers.redirectBack('Please provide valid data ( price and quantity must be between 1 and 999 )', false, req, res);
             return;
         }
 

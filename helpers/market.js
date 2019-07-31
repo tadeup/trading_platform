@@ -41,25 +41,15 @@ module.exports = {
     //     }
     // },
     hasMargin: function (asset ,p, q, currentUser, margin, type, closedOffers) {
-        let fechado = 0;
         let aberto = currentUser.assetPositions[asset];
-
-        for(let i=0, j=closedOffers.length; i<j; i++) {
-            if (closedOffers[i].asset === asset && closedOffers[i].isBuy){
-                fechado += closedOffers[i].originalQuantity - closedOffers[i].quantity;
-            }
-            else if (closedOffers[i].asset === asset && !closedOffers[i].isBuy){
-                fechado -= closedOffers[i].originalQuantity - closedOffers[i].quantity;
-            }
-        }
 
         if (type === "buy"){
 
-            return fechado + aberto + q <= margin
+            return aberto + q <= margin
 
         } else if (type === "sell") {
 
-            return fechado + aberto - q >= - margin
+            return aberto - q >= - margin
 
         } else {
             throw "type argument must equal 'buy' or 'sell'"

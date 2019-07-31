@@ -211,7 +211,7 @@
                                         {{#assetOffers ../buyOffers}}
                                             <tr>
                                                 <td class="custom-market-table text-center quantity">{{{quantity}}}</td>
-                                                <td class="custom-market-table text-center price">{{{price}}}</td>
+                                                <td class="custom-market-table text-center price"><strong>{{{price}}}</strong></td>
                                                 <td hidden>{{{_id}}}</td>
                                             </tr>
                                         {{/assetOffers}}
@@ -234,7 +234,7 @@
                                         <tbody id="sell-table-{{{stockName}}}">
                                         {{#assetOffers ../sellOffers}}
                                             <tr>
-                                                <td class="custom-market-table text-center price">{{{price}}}</td>
+                                                <td class="custom-market-table text-center price"><strong>{{{price}}}</strong></td>
                                                 <td class="custom-market-table text-center quantity">{{{quantity}}}</td>
                                                 <td hidden>{{{_id}}}</td>
                                             </tr>

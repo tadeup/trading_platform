@@ -9,13 +9,18 @@ async function pricesController(req, res, next) {
     let allTimes;
     let timesAndPrices;
     if (asset) {
-        allTimes = await Offer.find({asset}).sort({dateCompleted: 'asc'}).exec();
-        console.log(allTimes);
+        allTimes = await Offer
+          .find()
+          .where({asset})
+          .where({quantity: 0})
+          .sort({dateCompleted: 'asc'})
+          .exec();
+
         timesAndPrices = allTimes.map(a => {
             return a.dateCompleted
                 ? {
                     time : moment(a.dateCompleted).format('YYYY-DD-MM HH:mm:ss'),
-                    price : a.price
+                    price : a.pxqHistory / a.originalQuantity
                 }
                 : {
                     time : "UNCOMPLETE",

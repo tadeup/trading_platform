@@ -20,12 +20,21 @@
 
                         <div class="col-md-3"></div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group text-center">
                                 <label class="asset-label" for="assetName">Asset</label>
                                 <p>{{{stockName}}}</p>
                             </div>
                         </div>
+
+                        {{#myEndedOffers ../closedBuyOffers ../closedSellOffers finalValue}}
+                            <div class="col-md-3">
+                                <div class="form-group text-center">
+                                    <label class="assetPosition-label" for="asset-position">Earnings</label>
+                                    <p class="asset-position"><b>{{{earning}}}</b></p>
+                                </div>
+                            </div>
+                        {{/myEndedOffers}}
 
                         <div class="col-md-3"></div>
 
@@ -35,19 +44,13 @@
 
                         <div class="col-md-3"></div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group text-center">
                                 <label class="asset-label" for="assetName">Asset</label>
                                 <p>{{{stockName}}}</p>
                             </div>
                         </div>
 
-                        <div class="col-md-3">
-                            <div class="form-group text-center">
-                                <label class="assetPosition-label" for="asset-position">Position</label>
-                                <p class="asset-position"><b>{{lookup ../currentUser.assetPositions stockName}}</b></p>
-                            </div>
-                        </div>
 
                         <div class="col-md-3"></div>
 

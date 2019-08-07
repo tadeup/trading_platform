@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76e8517c-b65d-414f-b743-7b39b3835eb5" name="Default Changelist" comment="" />
+    <list default="true" id="76e8517c-b65d-414f-b743-7b39b3835eb5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/views/dashboard/xmarket.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/dashboard/xmarket.handlebars" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -25,17 +27,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/admin/prices.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="629">
               <caret line="37" column="50" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/admin/prices.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="21" column="81" lean-forward="true" selection-start-line="21" selection-start-column="81" selection-end-line="21" selection-end-column="81" />
+              <caret line="21" column="81" selection-start-line="21" selection-start-column="81" selection-end-line="21" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/dashboard/xmarket.handlebars">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="46" column="44" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -51,6 +62,7 @@
       <find>hasMargin</find>
       <find>timesAndPrices</find>
       <find>Offer.find</find>
+      <find>Position</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -63,8 +75,8 @@
         <option value="$PROJECT_DIR$/controllers/market/buy.js" />
         <option value="$PROJECT_DIR$/controllers/market/sell.js" />
         <option value="$PROJECT_DIR$/views/users/login.handlebars" />
-        <option value="$PROJECT_DIR$/views/dashboard/xmarket.handlebars" />
         <option value="$PROJECT_DIR$/controllers/admin/prices.js" />
+        <option value="$PROJECT_DIR$/views/dashboard/xmarket.handlebars" />
       </list>
     </option>
   </component>
@@ -78,7 +90,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -151,6 +162,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -187,14 +199,16 @@
       <workItem from="1564581847556" duration="5484000" />
       <workItem from="1564595345058" duration="5488000" />
       <workItem from="1564753000506" duration="2951000" />
+      <workItem from="1565214984809" duration="1435000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18376000" />
+    <option name="totallyTimeSpent" value="19811000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -344,6 +358,11 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/stocks.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/helpers/market.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
@@ -351,21 +370,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/dashboard/xmarket.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="230" column="94" selection-start-line="230" selection-start-column="94" selection-end-line="230" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/stocks.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/prices.handlebars">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="629">
           <caret line="37" column="50" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="50" />
         </state>
       </provider>
@@ -373,7 +380,14 @@
     <entry file="file://$PROJECT_DIR$/controllers/admin/prices.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="21" column="81" lean-forward="true" selection-start-line="21" selection-start-column="81" selection-end-line="21" selection-end-column="81" />
+          <caret line="21" column="81" selection-start-line="21" selection-start-column="81" selection-end-line="21" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/dashboard/xmarket.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="46" column="44" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="44" />
         </state>
       </provider>
     </entry>

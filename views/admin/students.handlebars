@@ -17,6 +17,38 @@
             </form>
         </div>
 
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card ">
+            <div class="card-header ">
+              <h4 class="card-title">POSITIONS</h4>
+            </div>
+            <div class="card-body table-full-width table-responsive">
+              <table class="table ">
+                <thead>
+                  <th>ASSET</th>
+                  <th>FINAL</th>
+                </thead>
+                <tbody>
+                  {{#each stockNames}}
+                    {{#if finalValue}}
+                      <tr>
+                        <td>{{{stockName}}}</td>
+                        <td>
+                          {{#myEndedOffers ../closedBuyOffers ../closedSellOffers finalValue}}
+                            {{{earning}}}
+                          {{/myEndedOffers}}
+                        </td>
+                      </tr>
+                    {{/if}}
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card ">

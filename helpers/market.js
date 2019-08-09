@@ -41,6 +41,10 @@ module.exports = {
     //     }
     // },
     hasMargin: function (asset ,p, q, currentUser, margin, type, closedOffers) {
+        if (currentUser.isAdmin) {
+            return true
+        }
+        
         let fechado = 0;
 
         if (type === "buy"){
